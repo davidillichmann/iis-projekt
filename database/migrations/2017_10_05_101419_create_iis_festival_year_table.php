@@ -15,6 +15,7 @@ class CreateIisFestivalYearTable extends Migration
     {
         Schema::create('iis_festival_year', function (Blueprint $table) {
             $table->increments('iis_festival_yearid');
+//            Todo: integritni omezeni u vsech table
 //            $table->foreign('iis_festivalid')->references('iis_festivalid')->on('iis_festival');
             $table->integer('iis_festivalid');
             $table->integer('order');

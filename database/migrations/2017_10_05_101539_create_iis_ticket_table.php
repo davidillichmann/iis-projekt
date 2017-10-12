@@ -21,6 +21,10 @@ class CreateIisTicketTable extends Migration
             $table->integer('iis_ticket_typeid');
             $table->string('code');
             // TODO: UNIQUE!
+//            123456789ABCDEFG01012017
+//             9 rand cislic
+//            6 rand pismen
+//            datum ddmmyy(10. 12. 2017)
             $table->timestamps();
             $table->index([
                 'iis_ticketid',

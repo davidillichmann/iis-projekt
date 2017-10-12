@@ -19,18 +19,18 @@
 
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                <li><a class="navbar-brand" href="">
-                        {{ __('includes/nav.projects') }}
-                    </a></li>
-                <li><a class="navbar-brand" href="">
-                        {{ __('includes/nav.tasks') }}
-                    </a></li>
-                <li><a class="navbar-brand" href="">
-                        {{ __('includes/nav.users') }}
-                    </a></li>
+            {{--<ul class="nav navbar-nav">--}}
+                {{--<li><a class="navbar-brand" href="">--}}
+                        {{--{{ __('includes/nav.projects') }}--}}
+                    {{--</a></li>--}}
+                {{--<li><a class="navbar-brand" href="">--}}
+                        {{--{{ __('includes/nav.tasks') }}--}}
+                    {{--</a></li>--}}
+                {{--<li><a class="navbar-brand" href="">--}}
+                        {{--{{ __('includes/nav.users') }}--}}
+                    {{--</a></li>--}}
 
-            </ul>
+            {{--</ul>--}}
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
