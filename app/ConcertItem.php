@@ -2,8 +2,7 @@
 
 namespace App;
 
-
-class ConcertItem {
+class ConcertItem implements ConcertItemInterface {
 
     protected $iis_concertid;
     protected $iis_eventid;
@@ -12,6 +11,17 @@ class ConcertItem {
     protected $created_at;
     protected $updated_at;
 
+    public function __construct(array $row)
+    {
+        if(!is_null($row)) {
+            $this->iis_concertid = $row['iis_concertid'];
+            $this->iis_eventid = $row['iis_eventid'];
+            $this->capacity = $row['capacity'];
+            $this->date = $row['date'];
+            $this->created_at = $row['created_at'];
+            $this->updated_at = $row['updated_at'];
+        }
+    }
     /**
      * @return mixed
      */
@@ -55,9 +65,14 @@ class ConcertItem {
     /**
      * @return mixed
      */
-    public function getIisConcertid ()
+    public function getId ()
     {
         return $this->iis_concertid;
+    }
+
+    public function getEventItem()
+    {
+        return iisEventRepository()->getItemById($this->getIisEventid());
     }
 
 }

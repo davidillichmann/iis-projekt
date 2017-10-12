@@ -4,12 +4,25 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+//concert
+Route::get('/concert/{id}', 'ConcertController@show')->name('concert.show');
+
+//festival
+Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
+
+
+
+//events
 Route::get('/events', function() {
     return view('event.index');
 })->name('event.index');
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+//interprets
 
 
 

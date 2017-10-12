@@ -10,6 +10,17 @@ class EventItem
     protected $created_at;
     protected $updated_at;
 
+    public function __construct(array $row)
+    {
+        if(! is_null($row)) {
+            $this->iis_eventid = $row['iis_eventid'];
+            $this->name = $row['name'];
+            $this->location = $row['location'];
+            $this->created_at = $row['created_at'];
+            $this->updated_at = $row['updated_at'];
+        }
+    }
+
     /**
      * @return mixed
      */
