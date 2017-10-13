@@ -14,6 +14,20 @@ if (! function_exists('iisConcertRepository')) {
     }
 }
 
+if (! function_exists('iisFestivalRepository')) {
+    /**
+     * @return \App\Repositories\FestivalRepositoryInterface
+     */
+    function iisFestivalRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\FestivalRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}
+
 if (! function_exists('iisEventRepository')) {
     /**
      * @return \App\Repositories\EventRepositoryInterface

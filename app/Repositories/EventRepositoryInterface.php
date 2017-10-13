@@ -12,7 +12,9 @@ interface EventRepositoryInterface {
 
 //    public function getAllItems();
 
-    public function getItemById(int $id);
+//    public function getItemById(int $id);
+
+    public function getRowById(int $id);
 
 //    public function save($name, $location, $image, $description);
 }

@@ -9,6 +9,8 @@ class FestivalController extends Controller
 
     public function show($festivalId)
     {
-        return view('festival.show');
+        $festivalItem = iisFestivalRepository()->getItemById($festivalId);
+
+        return view('festival.show', compact('festivalItem'));
     }
 }

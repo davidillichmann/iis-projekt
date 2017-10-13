@@ -14,8 +14,11 @@
         Capacity = {{ $concertItem->getCapacity() }} <br>
         Date = {{ $concertItem->getDate() }} <br>
 
-        Name = {{ $eventItem->getName() }} <br>
-        Location = {{ $eventItem->getLocation() }} <br>
+        Name = {{ $concertItem->getName() }} <br>
+        Location = {{ $concertItem->getLocation() }} <br>
+
+        Concert Created At = {{ $concertItem->getCreatedAt() }} <br>
+        Event Created At = {{ $concertItem->getEventCreatedAt() }} <br>
 
 
     </div>

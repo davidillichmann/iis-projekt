@@ -2,14 +2,26 @@
 
 namespace App;
 
-class FestivalItem
-{
+class FestivalItem extends EventItem implements FestivalItemInterface {
     protected $iis_festivalid;
     protected $iis_eventid;
     protected $frequency;
     protected $length;
     protected $created_at;
     protected $updated_at;
+
+    public function __construct(array $row)
+    {
+        if (!is_null($row)) {
+            parent::__construct(iisEventRepository()->getRowById($row['iis_eventid']));
+            $this->iis_festivalid = $row['iis_festivalid'];
+            $this->iis_eventid = $row['iis_eventid'];
+            $this->frequency = $row['frequency'];
+            $this->length = $row['length'];
+            $this->created_at = $row['created_at'];
+            $this->updated_at = $row['updated_at'];
+        }
+    }
 
     /**
      * @return mixed
@@ -46,7 +58,7 @@ class FestivalItem
     /**
      * @return mixed
      */
-    public function getIisFestivalid ()
+    public function getId ()
     {
         return $this->iis_festivalid;
     }

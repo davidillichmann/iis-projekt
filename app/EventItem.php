@@ -2,13 +2,12 @@
 
 namespace App;
 
-class EventItem
-{
+class EventItem implements EventItemInterface {
     protected $iis_eventid;
     protected $name;
     protected $location;
-    protected $created_at;
-    protected $updated_at;
+    protected $eventCreated_at;
+    protected $eventUpdated_at;
 
     public function __construct(array $row)
     {
@@ -16,17 +15,17 @@ class EventItem
             $this->iis_eventid = $row['iis_eventid'];
             $this->name = $row['name'];
             $this->location = $row['location'];
-            $this->created_at = $row['created_at'];
-            $this->updated_at = $row['updated_at'];
+            $this->eventCreated_at = $row['created_at'];
+            $this->eventUpdated_at = $row['updated_at'];
         }
     }
 
     /**
      * @return mixed
      */
-    public function getCreatedAt ()
+    public function getEventCreatedAt ()
     {
-        return $this->created_at;
+        return $this->eventCreated_at;
     }
 
     /**
@@ -56,9 +55,9 @@ class EventItem
     /**
      * @return mixed
      */
-    public function getUpdatedAt ()
+    public function getEventUpdatedAt ()
     {
-        return $this->updated_at;
+        return $this->eventUpdated_at;
     }
 
 }

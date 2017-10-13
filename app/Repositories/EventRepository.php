@@ -28,14 +28,21 @@ class EventRepository implements EventRepositoryInterface {
 //            ->get();
 //    }
 
-    public function getItemById(int $id)
+//    public function getItemById(int $id)
+//    {
+//        $row = $this->getQueryBuilder()
+//            ->where('iis_eventid', $id)
+//            ->first();
+//        if($row) {
+//            return new EventItem((array) $row);
+//        }
+//    }
+
+    public function getRowById(int $id): array
     {
-        $row = $this->getQueryBuilder()
+        return (array) $this->getQueryBuilder()
             ->where('iis_eventid', $id)
             ->first();
-        if($row) {
-            return new EventItem((array) $row);
-        }
     }
 
 //    public function save($name, $location, $image, $description)

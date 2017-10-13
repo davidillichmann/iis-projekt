@@ -6,6 +6,8 @@ use App\Repositories\ConcertRepository;
 use App\Repositories\ConcertRepositoryInterface;
 use App\Repositories\EventRepository;
 use App\Repositories\EventRepositoryInterface;
+use App\Repositories\FestivalRepository;
+use App\Repositories\FestivalRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 include __DIR__ . '/../helpers-repositories.php';
@@ -38,6 +40,7 @@ class IisServiceProvider extends ServiceProvider
     protected function registerLaravelSingeltons()
     {
         $this->app->singleton(ConcertRepositoryInterface::class, ConcertRepository::class);
+        $this->app->singleton(FestivalRepositoryInterface::class, FestivalRepository::class);
         $this->app->singleton(EventRepositoryInterface::class, EventRepository::class);
     }
 }

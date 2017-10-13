@@ -2,7 +2,7 @@
 
 namespace App;
 
-class ConcertItem implements ConcertItemInterface {
+class ConcertItem extends EventItem implements ConcertItemInterface {
 
     protected $iis_concertid;
     protected $iis_eventid;
@@ -13,7 +13,8 @@ class ConcertItem implements ConcertItemInterface {
 
     public function __construct(array $row)
     {
-        if(!is_null($row)) {
+        if (!is_null($row)) {
+            parent::__construct(iisEventRepository()->getRowById($row['iis_eventid']));
             $this->iis_concertid = $row['iis_concertid'];
             $this->iis_eventid = $row['iis_eventid'];
             $this->capacity = $row['capacity'];
@@ -22,10 +23,11 @@ class ConcertItem implements ConcertItemInterface {
             $this->updated_at = $row['updated_at'];
         }
     }
+
     /**
      * @return mixed
      */
-    public function getUpdatedAt ()
+    public function getUpdatedAt()
     {
         return $this->updated_at;
     }
@@ -33,7 +35,7 @@ class ConcertItem implements ConcertItemInterface {
     /**
      * @return mixed
      */
-    public function getIisEventid ()
+    public function getIisEventid()
     {
         return $this->iis_eventid;
     }
@@ -41,7 +43,7 @@ class ConcertItem implements ConcertItemInterface {
     /**
      * @return mixed
      */
-    public function getCreatedAt ()
+    public function getCreatedAt()
     {
         return $this->created_at;
     }
@@ -49,7 +51,7 @@ class ConcertItem implements ConcertItemInterface {
     /**
      * @return mixed
      */
-    public function getCapacity ()
+    public function getCapacity()
     {
         return $this->capacity;
     }
@@ -57,7 +59,7 @@ class ConcertItem implements ConcertItemInterface {
     /**
      * @return mixed
      */
-    public function getDate ()
+    public function getDate()
     {
         return $this->date;
     }
@@ -65,7 +67,7 @@ class ConcertItem implements ConcertItemInterface {
     /**
      * @return mixed
      */
-    public function getId ()
+    public function getId()
     {
         return $this->iis_concertid;
     }
