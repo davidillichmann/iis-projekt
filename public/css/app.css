@@ -10206,3 +10206,72 @@ a.text-gray-dark:hover {
   }
 }
 
+.navbar {
+  height: 40px;
+}
+
+.content-container {
+  background-color: #f6f6f6;
+  background-size: cover;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.login_background_image {
+  background-image: url("/img/background/login/login.jpg");
+  background-size: cover;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.register_background_image2 {
+  background-image: url("/img/background/register/register.jpg");
+  background-size: cover;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.left-column {
+  width: 500px;
+  height: 50px;
+  float: left;
+}
+
+.right-column {
+  width: 500px;
+  margin-left: 50px;
+  height: 50px;
+  float: left;
+}
+

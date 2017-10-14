@@ -5,20 +5,22 @@
 </head>
 <body>
 
-<div class="container-fluid">
     <header>
         @include('includes.nav')
     </header>
 
-    <div id="main" class="container">
+    <div class="content-container">
+        <div id="main" class="container" >
 
-        @yield('content')
+            @yield('content')
 
+        </div>
     </div>
+
 
     <footer>
         @include('includes.footer')
     </footer>
-</div>
+
 </body>
 </html>

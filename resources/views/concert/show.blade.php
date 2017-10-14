@@ -1,25 +1,33 @@
-@extends('layouts.default')
+@extends('layouts.master')
 
 @section('content')
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="text-center">Concert Page</h1>
+        <h1 class="text-center">{{ $concertItem->getName() }}</h1>
         <hr>
 
         {{-- Page content--}}
+        <div class="container">
+            <div class="row">
 
-        Concert ID = {{ $concertItem->getId() }} <br>
-        Event ID = {{ $concertItem->getIisEventId() }} <br>
-        Capacity = {{ $concertItem->getCapacity() }} <br>
-        Date = {{ $concertItem->getDate() }} <br>
+                <div class="left-column">
+                    <img src="{{ $concertItem->getImage() }}" alt="Concert Image" style="width: 500px">
+                </div>
 
-        Name = {{ $concertItem->getName() }} <br>
-        Location = {{ $concertItem->getLocation() }} <br>
+                <div class="right-column">
 
-        Concert Created At = {{ $concertItem->getCreatedAt() }} <br>
-        Event Created At = {{ $concertItem->getEventCreatedAt() }} <br>
+                    <b>Date</b>: {{ $concertItem->getDate() }} <br>
+                    <b>Location</b>: {{ $concertItem->getLocation() }} <br>
+                    <b>Capacity</b>: {{ $concertItem->getCapacity() }} <br>
 
+                    <hr>
+
+                    <b>Description</b>:
+                    <p>{{ $concertItem->getDescription() }}</p>
+                </div>
+            </div>
+        </div>
 
     </div>
 @endsection
