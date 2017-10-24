@@ -19,7 +19,8 @@ class CreateIisFestivalYearTable extends Migration
 //            $table->foreign('iis_festivalid')->references('iis_festivalid')->on('iis_festival');
             $table->integer('iis_festivalid');
             $table->integer('order');
-            $table->timestamp('date');
+            $table->datetime('end_date');
+            $table->datetime('start_date');
             $table->timestamps();
             $table->index([
                 'iis_festival_yearid',

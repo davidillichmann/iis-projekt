@@ -19,7 +19,6 @@ class iis_festivalTableSeeder extends Seeder
         DB::table('iis_festival')->insert([
           'iis_eventid' => ($index+50),
           'frequency' => $faker->word(),
-          'length' => $faker->numberBetween(1, 10),
           'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
           'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')
         ]);

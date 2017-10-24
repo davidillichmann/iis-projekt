@@ -19,9 +19,10 @@ class iis_festival_yearTableSeeder extends Seeder
         DB::table('iis_festival_year')->insert([
           'iis_festivalid' => $index,
           'order' => $faker->numberBetween(1, 10),
-          'date' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
-          'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
-          'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')
+          'end_date' => $endDate = $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
+          'start_date' => $faker->date($format = 'Y-m-d H:i:s', $max = $endDate),
+          'created_at' => date('Y-m-d H:i:s'),
+          'updated_at' => date('Y-m-d H:i:s')
         ]);
       }
 
