@@ -61,11 +61,11 @@
                                 @else
                                     <div class="carousel-item">
                                         @endif
-                                        <a href="{{ route('concert.show', $festivalItem->getId()) }}">
+                                        <a href="{{ route('festival.show', $festivalItem->getId()) }}">
                                             <img class="d-block img-fluid" src="{{ $festivalItem->getImage() }}" alt="{{ $festivalItem->getName() }}">
                                         </a>
                                         <div class="carousel-caption d-none d-md-block">
-                                            <a href="{{ route('concert.show', $festivalItem->getId()) }}">
+                                            <a href="{{ route('festival.show', $festivalItem->getId()) }}">
                                                 <h3>{{ $festivalItem->getName() }}</h3>
                                             </a>
                                             <p>{{ $festivalItem->getStartDate() }} - {{ $festivalItem->getEndDate() }}</p>

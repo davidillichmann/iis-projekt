@@ -15,7 +15,7 @@ class SearchController extends Controller
         $concertItems = iisConcertRepository()->getAllItems();
         $festivalItems = iisFestivalRepository()->getAllItems();
 
-        return view('event.index', compact('concertItems', 'festivalItems'));
+        return view('search.index', compact('concertItems', 'festivalItems'));
     }
 
 }
