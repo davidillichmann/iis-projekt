@@ -13,18 +13,18 @@ class CreateIisFestivalYearIisStageTable extends Migration
      */
     public function up()
     {
-        Schema::create('iis_festival_year_iis_stage', function (Blueprint $table) {
-            $table->increments('iis_festival_year_iis_stageid');
-//            $table->foreign('iis_festival_yearid')->references('iis_festival_yearid')->on('iis_festival');
+        Schema::create('iis_festival_iis_stage', function (Blueprint $table) {
+            $table->increments('iis_festival_iis_stageid');
+//            $table->foreign('iis_festivalid')->references('iis_festivalid')->on('iis_festival');
 //            $table->foreign('iis_stageid')->references('iis_stageid')->on('iis_stage');
-            $table->integer('iis_festival_yearid');
+            $table->integer('iis_festivalid');
             $table->integer('iis_stageid');
             $table->timestamps();
             $table->index([
-                'iis_festival_year_iis_stageid',
-                'iis_festival_yearid',
+                'iis_festival_iis_stageid',
+                'iis_festivalid',
                 'iis_stageid'
-            ], 'iis_festival_year_iis_stage_index');
+            ], 'iis_festival_iis_stage_index');
         });
     }
 
@@ -35,6 +35,6 @@ class CreateIisFestivalYearIisStageTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('iis_festival_year_iis_stage');
+        Schema::dropIfExists('iis_festival_iis_stage');
     }
 }

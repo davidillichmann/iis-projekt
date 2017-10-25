@@ -11,12 +11,14 @@
 
         Festival ID = {{ $festivalItem->getId() }} <br>
         Event ID = {{ $festivalItem->getIisEventId() }} <br>
-        Frequency = {{ $festivalItem->getFrequency() }} <br>
-        Length = {{ $festivalItem->getLength() }} <br>
-
+        Interval = {{ $festivalItem->getInterval() }} <br>
+        Order = {{ $festivalItem->getOrder() }} <br>
+        Start Date = {{ $festivalItem->getStartDate() }} <br>
+        End Date = {{ $festivalItem->getEndDate() }} <br>
+        <br>
         Name = {{ $festivalItem->getName() }} <br>
         Location = {{ $festivalItem->getLocation() }} <br>
-
+        <br>
         Festival Created At = {{ $festivalItem->getCreatedAt() }} <br>
         Event Created At = {{ $festivalItem->getEventCreatedAt() }} <br>
 

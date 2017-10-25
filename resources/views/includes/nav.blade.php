@@ -1,9 +1,16 @@
 <div class="container">
     <nav class="navbar navbar-light navbar-toggleable-md">
 
-        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
-            Search
-        </ul>
+        {{--<ul class="navbar-nav mr-auto mt-2 mt-md-0">--}}
+            {{--Search--}}
+        {{--</ul>--}}
+
+        <div class="input-group col-md-12">
+            <form class="form-inline" action="{{ route('event.search') }}">
+                <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
 
         <ul class="navbar-nav">
 

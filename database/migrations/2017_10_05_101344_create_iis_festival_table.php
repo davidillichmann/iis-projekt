@@ -17,7 +17,10 @@ class CreateIisFestivalTable extends Migration
             $table->increments('iis_festivalid');
             $table->integer('iis_eventid');
 //            $table->foreign('iis_eventid')->references('iis_eventid')->on('iis_event');
-            $table->string('frequency');
+            $table->string('interval');
+            $table->integer('order');
+            $table->datetime('start_date');
+            $table->datetime('end_date');
             $table->timestamps();
             $table->index([
                 'iis_festivalid',
