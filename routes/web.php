@@ -1,13 +1,7 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-
+//Homepage
+Route::get('/', 'HomeController@index')->name('home.index');
 
 //concert
 Route::get('/concert/{id}', 'ConcertController@show')->name('concert.show');
@@ -15,12 +9,8 @@ Route::get('/concert/{id}', 'ConcertController@show')->name('concert.show');
 //festival
 Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
 
-
-
-//events
-Route::get('/events', function() {
-    return view('event.index');
-})->name('event.index');
+//Vyhledavani
+Route::get('/search', 'SearchController@index')->name('search.index');
 
 //interprets
 

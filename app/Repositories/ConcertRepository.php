@@ -27,11 +27,27 @@ class ConcertRepository implements ConcertRepositoryInterface {
             ->select(DB::raw(implode(',', $this->columns)));
     }
 
-//    public function getAllItems()
-//    {
-//        return $this->getQueryBuilder()
-//            ->get();
-//    }
+    public function getAllItems()
+    {
+        return $this->_toItems($results = $this->getQueryBuilder()
+            ->get());
+    }
+
+    private function _toItem($row)
+    {
+        if($row) {
+            return new ConcertItem((array) $row);
+        }
+    }
+
+    private function _toItems($rows)
+    {
+        $items = [];
+        foreach ($rows as $row) {
+            $items[] = $this->_toItem((array) $row);
+        }
+        return $items;
+    }
 
     /**
      * @param int $id
@@ -39,12 +55,9 @@ class ConcertRepository implements ConcertRepositoryInterface {
      */
     public function getItemById(int $id): ConcertItemInterface
     {
-        $row = $this->getQueryBuilder()
+        return $this->_toItem($this->getQueryBuilder()
             ->where('iis_concertid', $id)
-            ->first();
-        if($row) {
-            return new ConcertItem((array) $row);
-        }
+            ->first());
     }
 
 //    public function save($eventid, $capacity, $date)

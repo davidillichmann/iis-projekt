@@ -22,15 +22,11 @@ interface FestivalItemInterface {
     /**
      * @return mixed
      */
-    public function getFrequency();
+    public function getInterval();
 
     /**
      * @return mixed
      */
     public function getId();
 
-    /**
-     * @return mixed
-     */
-    public function getLength();
 }

@@ -10,8 +10,10 @@ class FestivalRepository implements FestivalRepositoryInterface {
     protected $columns = [
       '`iis_festival`.`iis_festivalid`',
       '`iis_festival`.`iis_eventid`',
-      '`iis_festival`.`frequency`',
-      '`iis_festival`.`length`',
+      '`iis_festival`.`interval`',
+      '`iis_festival`.`order`',
+      '`iis_festival`.`start_date`',
+      '`iis_festival`.`end_date`',
       '`iis_festival`.`created_at`',
       '`iis_festival`.`updated_at`',
     ];
@@ -22,20 +24,33 @@ class FestivalRepository implements FestivalRepositoryInterface {
             ->select(DB::raw(implode(',', $this->columns)));
     }
 
-//    public function getAllItems()
-//    {
-//        return $this->getQueryBuilder()
-//            ->get();
-//    }
+    public function getAllItems()
+    {
+        return $this->_toItems($results = $this->getQueryBuilder()
+            ->get());
+    }
 
     public function getItemById($id)
     {
-        $row = $this->getQueryBuilder()
+        return $this->_toItem($this->getQueryBuilder()
             ->where('iis_festivalid', $id)
-            ->first();
+            ->first());
+    }
+
+    private function _toItem($row)
+    {
         if($row) {
             return new FestivalItem((array) $row);
         }
+    }
+
+    private function _toItems($rows)
+    {
+        $items = [];
+        foreach ($rows as $row) {
+            $items[] = $this->_toItem((array) $row);
+        }
+        return $items;
     }
 
 //    public function save($eventid, $frequency, $length)

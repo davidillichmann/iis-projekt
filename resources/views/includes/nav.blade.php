@@ -6,7 +6,7 @@
         {{--</ul>--}}
 
         <div class="input-group col-md-12">
-            <form class="form-inline" action="{{ route('event.search') }}">
+            <form class="form-inline" action="{{ route('search.index') }}">
                 <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>

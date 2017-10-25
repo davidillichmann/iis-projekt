@@ -47,7 +47,7 @@
 
             <div class="container">
                 <div class="row">
-        @foreach($concertItems as $concertItem)
+                    @foreach($concertItems as $concertItem)
                     <div class="col-lg-3">
                         <div class="card h-100">
 
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                     </div>
-        @endforeach
+                    @endforeach
                 </div>
                 <!-- /.row -->
             </div>
@@ -77,19 +77,26 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="card h-100">
+                @foreach($festivalItems as $festivalItem)
+                    <div class="col-lg-3">
+                        <div class="card h-100">
 
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">Festival One</a>
-                            </h4>
-                            <p class="card-text">
-
-                            </p>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="{{ route('festival.show', $festivalItem->getId()) }}">Festival {{ $festivalItem->getId() }}</a>
+                                </h4>
+                                <p class="card-text">
+                                    <b>Name</b>: {{ $festivalItem->getName() }} <br>
+                                    <b>Start Date</b>: {{ $festivalItem->getStartDate() }} <br>
+                                    <b>End Date</b>: {{ $festivalItem->getEndDate() }} <br>
+                                    <b>Location</b>: {{ $festivalItem->getLocation() }} <br>
+                                    <b>Order</b>: {{ $festivalItem->getOrder() }} <br>
+                                    <b>Interval</b>: {{ $festivalItem->getInterval() }} <br>
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
             <!-- /.row -->
         </div>
