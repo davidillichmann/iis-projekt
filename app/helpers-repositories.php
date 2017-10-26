@@ -41,3 +41,17 @@ if (! function_exists('iisEventRepository')) {
         return $repository;
     }
 }
+
+if (! function_exists('iisInterpretRepository')) {
+    /**
+     * @return \App\Repositories\InterpretRepositoryInterface
+     */
+    function iisInterpretRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\InterpretRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}

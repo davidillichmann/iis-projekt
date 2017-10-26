@@ -20,6 +20,7 @@ class CreateIisInterpretTable extends Migration
             $table->string('genre');
             $table->string('publisher');
             $table->string('image');
+            $table->string('description');
             $table->timestamp('formed_at');
             $table->timestamps();
             $table->index('iis_interpretid');

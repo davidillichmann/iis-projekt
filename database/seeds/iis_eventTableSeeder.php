@@ -19,7 +19,7 @@ class iis_eventTableSeeder extends Seeder
         DB::table('iis_event')->insert([
           'name' => $faker->sentence(3, true),
           'location' => $faker->sentence(2, true),
-          'image' => $faker->imageUrl($width = 640, $height = 480),
+          'image' => $faker->imageUrl($width = 1280, $height = 720),
           'description' => $faker->sentence(20, true),
           'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
           'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')

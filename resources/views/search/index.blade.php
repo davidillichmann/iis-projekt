@@ -4,7 +4,7 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="text-center">Events</h1>
+        <h1 class="text-center">Search</h1>
         <hr>
 
         {{-- Page filter --}}
@@ -48,9 +48,9 @@
             <div class="container">
                 <div class="row">
                     @foreach($concertItems as $concertItem)
-                    <div class="col-lg-3">
-                        <div class="card h-100">
-
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <img class="card-img-top" src="..." alt="{{ $concertItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="{{ route('concert.show', $concertItem->getId()) }}">Concert {{ $concertItem->getId() }}</a>

@@ -9,11 +9,11 @@ Route::get('/concert/{id}', 'ConcertController@show')->name('concert.show');
 //festival
 Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
 
-//Vyhledavani
+//search
 Route::get('/search', 'SearchController@index')->name('search.index');
 
-//interprets
-
+//interpret
+Route::get('/interpret/{id}', 'InterpretController@show')->name('interpret.show');
 
 
 // Login and Register Routes
