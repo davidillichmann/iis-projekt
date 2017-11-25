@@ -20,12 +20,23 @@
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
-                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-Mail Address" required>
+                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail" required>
 
                 @if ($errors->has('email'))
-                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                    <span class="help-block" style="color:red">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+
+            <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
+
+                <input id="phone" type="number" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="Phone number" required>
+
+                @if ($errors->has('phone'))
+                    <span class="help-block" style="color:red">
+                        <strong>{{ $errors->first('phone') }}</strong>
+                    </span>
                 @endif
             </div>
 
