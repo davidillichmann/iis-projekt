@@ -45,16 +45,16 @@ class EventRepository implements EventRepositoryInterface {
             ->first();
     }
 
-//    public function save($name, $location, $image, $description)
-//    {
-//        return DB::table('`iis_event`')->insertGetId([
-//            'name' => $name,
-//            'location' => $location,
-//            'image' => $image,
-//            'description' => $description,
-//            'created_at' => date("Y-m-d H:i:s"),
-//            'updated_at' => date("Y-m-d H:i:s"),
-//        ]);
-//    }
+    public function insertGetId(array $data)
+    {
+        return DB::table('iis_event')->insertGetId([
+            'name' => $data['name'],
+            'location' => $data['location'],
+            'image' => $data['imagePath'],
+            'description' => $data['description'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
 
 }

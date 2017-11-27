@@ -7,6 +7,9 @@
         <hr>
 
         <h1 class="text-left">Concerts</h1>
+        <a href="{{ route('concert.add') }}">
+            <button type="button" class="btn btn-success">New concert</button>
+        </a>
         <hr>
 
         <div id="homepage__concert-carousel-indicators" class="carousel slide" data-ride="carousel">

@@ -12,7 +12,7 @@
             <div class="row">
 
                 <div class="left-column">
-                    <img src="{{ $concertItem->getImage() }}" alt="Concert Image" style="width: 500px">
+                    <img src="{{  Storage::url($concertItem->getImage()) }}" alt="Concert Image" style="width: 500px">
                 </div>
 
                 <div class="right-column">

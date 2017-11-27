@@ -60,14 +60,14 @@ class ConcertRepository implements ConcertRepositoryInterface {
             ->first());
     }
 
-//    public function save($eventid, $capacity, $date)
-//    {
-//        return DB::table('`iis_concert`')->insertGetId([
-//            'eventid' => $eventid,
-//            'capacity' => $capacity,
-//            'date' => $date,
-//            'created_at' => date("Y-m-d H:i:s"),
-//            'updated_at' => date("Y-m-d H:i:s"),
-//        ]);
-//    }
+    public function insertGetId(array $data, int $eventId)
+    {
+        return DB::table('iis_concert')->insertGetId([
+            'iis_eventid' => $eventId,
+            'capacity' => $data['capacity'],
+            'date' => $data['date'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
 }
