@@ -17,7 +17,6 @@ class CreateIisConcertTable extends Migration
             $table->increments('iis_concertid');
 //            $table->foreign('iis_eventid')->references('iis_eventid')->on('iis_event');
             $table->integer('iis_eventid');
-            $table->string('name');
             $table->integer('capacity');
             $table->timestamp('date');
             $table->timestamps();
