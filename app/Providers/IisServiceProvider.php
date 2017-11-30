@@ -12,6 +12,8 @@ use App\Repositories\InterpretAtConcertRepository;
 use App\Repositories\InterpretAtConcertRepositoryInterface;
 use App\Repositories\InterpretRepository;
 use App\Repositories\InterpretRepositoryInterface;
+use App\Repositories\TicketTypeRepository;
+use App\Repositories\TicketTypeRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 include __DIR__ . '/../helpers-repositories.php';
@@ -48,5 +50,6 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(EventRepositoryInterface::class, EventRepository::class);
         $this->app->singleton(InterpretRepositoryInterface::class, InterpretRepository::class);
         $this->app->singleton(InterpretAtConcertRepositoryInterface::class, InterpretAtConcertRepository::class);
+        $this->app->singleton(TicketTypeRepositoryInterface::class, TicketTypeRepository::class);
     }
 }

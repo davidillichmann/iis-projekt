@@ -69,3 +69,17 @@ if (! function_exists('iisInterpretAtConcertRepository')) {
         return $repository;
     }
 }
+
+if (! function_exists('iisTicketTypeRepository')) {
+    /**
+     * @return \App\Repositories\TicketTypeRepositoryInterface
+     */
+    function iisTicketTypeRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\TicketTypeRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}
