@@ -8,6 +8,8 @@ use App\Repositories\EventRepository;
 use App\Repositories\EventRepositoryInterface;
 use App\Repositories\FestivalRepository;
 use App\Repositories\FestivalRepositoryInterface;
+use App\Repositories\InterpretAtConcertRepository;
+use App\Repositories\InterpretAtConcertRepositoryInterface;
 use App\Repositories\InterpretRepository;
 use App\Repositories\InterpretRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
@@ -45,5 +47,6 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(FestivalRepositoryInterface::class, FestivalRepository::class);
         $this->app->singleton(EventRepositoryInterface::class, EventRepository::class);
         $this->app->singleton(InterpretRepositoryInterface::class, InterpretRepository::class);
+        $this->app->singleton(InterpretAtConcertRepositoryInterface::class, InterpretAtConcertRepository::class);
     }
 }

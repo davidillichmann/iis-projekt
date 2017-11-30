@@ -55,3 +55,17 @@ if (! function_exists('iisInterpretRepository')) {
         return $repository;
     }
 }
+
+if (! function_exists('iisInterpretAtConcertRepository')) {
+    /**
+     * @return \App\Repositories\InterpretAtConcertRepositoryInterface
+     */
+    function iisInterpretAtConcertRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\InterpretAtConcertRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}

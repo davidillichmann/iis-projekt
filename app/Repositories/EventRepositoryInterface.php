@@ -8,6 +8,7 @@
 
 namespace App\Repositories;
 
+use App\EventItem;
 use Illuminate\Support\Facades\DB;
 
 interface EventRepositoryInterface {
@@ -19,6 +20,8 @@ interface EventRepositoryInterface {
     public function getRowById(int $id);
 
     public function insertGetId(array $data);
+
+    public function getItemById(int $id);
 
 //    public function save($name, $location, $image, $description);
 }

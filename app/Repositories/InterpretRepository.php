@@ -18,7 +18,6 @@ class InterpretRepository implements InterpretRepositoryInterface {
         '`iis_interpret`.`formed_at`',
         '`iis_interpret`.`created_at`',
         '`iis_interpret`.`updated_at`',
-
     ];
 
     protected function getQueryBuilder()

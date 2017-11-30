@@ -25,6 +25,22 @@
 
                     <b>Description</b>:
                     <p>{{ $concertItem->getDescription() }}</p>
+
+                    <hr>
+                    <b>Interprets</b>: <br>
+                    @foreach($concertItem->getInterprets() as $interpretAtConcertItem)
+                        <b>Interpret Name</b>:
+                            <a href="{{ route('interpret.show', $interpretAtConcertItem->getId()) }}">
+                                {{ $interpretAtConcertItem->getName() }}</a> <br>
+                        <b>Members</b>: {{ $interpretAtConcertItem->getMembers() }} <br>
+                        <b>Genre</b>: {{ $interpretAtConcertItem->getGenre() }} <br>
+                        <b>Publisher</b>: {{ $interpretAtConcertItem->getPublisher() }} <br>
+                        <b>Formed at</b>: {{ $interpretAtConcertItem->getFormedAt() }} <br>
+
+                        <b>Order</b>: {{ $interpretAtConcertItem->getOrder() }} <br>
+                        <b>Date/Time</b>: {{ $interpretAtConcertItem->getDate() }} <br>
+                        <hr>
+                    @endforeach
                 </div>
             </div>
         </div>

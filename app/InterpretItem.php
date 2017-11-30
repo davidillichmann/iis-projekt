@@ -82,7 +82,7 @@ class InterpretItem implements InterpretItemInterface {
     /**
      * @return mixed
      */
-    public function getIisInterpretid()
+    public function getId()
     {
         return $this->iis_interpretid;
     }

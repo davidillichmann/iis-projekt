@@ -11,7 +11,7 @@ interface InterpretItemInterface {
     /**
      * @return mixed
      */
-    public function getIisInterpretid();
+    public function getId();
 
     /**
      * @return mixed
