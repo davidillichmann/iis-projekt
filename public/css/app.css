@@ -10246,7 +10246,7 @@ a.text-gray-dark:hover {
 .form-signin {
   max-width: 330px;
   padding: 30px;
-  margin: 0 auto;
+  margin: 120px auto;
 }
 
 .form-signin .form-control {
@@ -10260,6 +10260,23 @@ a.text-gray-dark:hover {
 
 .form-signin .form-control:focus {
   z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  background-color: #b2b6b4;
+}
+
+.form-signin input[type="password"] {
+  background-color: #b2b6b4;
+}
+
+.form-signin input[id="name"] {
+  background-color: #b2b6b4;
+}
+
+.form-signin button[id="signButton"] {
+  color: #a5a5a5;
+  border-color: #a5a5a5;
 }
 
 .left-column {

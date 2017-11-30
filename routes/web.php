@@ -15,6 +15,9 @@ Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
 Route::get('/search', 'SearchController@index')->name('search.index');
 
 //interpret
+Route::get('/interprets', 'InterpretController@index')->name('interpret.index');
+Route::get('/interpret/new', 'InterpretController@add')->name('interpret.add');
+Route::post('/interpret/new', 'InterpretController@sent')->name('interpret.sent');
 Route::get('/interpret/{id}', 'InterpretController@show')->name('interpret.show');
 
 

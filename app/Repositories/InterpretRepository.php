@@ -26,11 +26,11 @@ class InterpretRepository implements InterpretRepositoryInterface {
             ->select(DB::raw(implode(',', $this->columns)));
     }
 
-//    public function getAllItems()
-//    {
-//        return $this->_toItems($results = $this->getQueryBuilder()
-//            ->get());
-//    }
+    public function getAllItems()
+    {
+        return $this->_toItems($results = $this->getQueryBuilder()
+            ->get());
+    }
 
     public function getItemById($id)
     {
@@ -46,12 +46,27 @@ class InterpretRepository implements InterpretRepositoryInterface {
         }
     }
 
-//    private function _toItems($rows)
-//    {
-//        $items = [];
-//        foreach ($rows as $row) {
-//            $items[] = $this->_toItem((array) $row);
-//        }
-//        return $items;
-//    }
+    private function _toItems($rows)
+    {
+        $items = [];
+        foreach ($rows as $row) {
+            $items[] = $this->_toItem((array) $row);
+        }
+        return $items;
+    }
+
+    public function insertGetId(array $data)
+    {
+        return DB::table('iis_interpret')->insertGetId([
+            'name' => $data['name'],
+            'members' => $data['members'],
+            'genre' => $data['genre'],
+            'publisher' => $data['publisher'],
+            'image' => $data['imagePath'],
+            'description' => $data['description'],
+            'formed_at' => $data['formed_at'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
 }

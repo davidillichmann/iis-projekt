@@ -26,7 +26,7 @@
                 @endif
             </div>
 
-            <button class="btn btn-lg btn btn-outline-secondary" type="submit">Sign in</button>
+            <button class="btn btn-lg btn btn-outline-secondary" id="signButton" type="submit">Sign in</button>
         </form>
     </div> <!-- /container -->
 
