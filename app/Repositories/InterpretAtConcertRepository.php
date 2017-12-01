@@ -40,6 +40,18 @@ class InterpretAtConcertRepository extends InterpretRepository implements Interp
         return $this->_toItems($arrays);
     }
 
+    public function insertGetId(array $data)
+    {
+        return DB::table('iis_interpret_iis_concert')->insertGetId([
+            'iis_interpretid' => $data['interpretId'],
+            'iis_concertid' => $data['concertId'],
+            'order' => $data['order'],
+            'date' => $data['date'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
+
 //    public function getItemById($id)
 //    {
 //        return $this->_toItem($this->getQueryBuilder()

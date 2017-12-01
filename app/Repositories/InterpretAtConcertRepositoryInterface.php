@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\DB;
 interface InterpretAtConcertRepositoryInterface {
 
     public function getItemsByIisConcertIdSortedByOrder(int $iisConcertId);
+
+    public function insertGetId(array $data);
+
 }

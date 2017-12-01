@@ -7,6 +7,8 @@ Route::get('/', 'HomeController@index')->name('home.index');
 Route::get('/concert/new', 'ConcertController@add')->name('concert.add');
 Route::post('/concert/new', 'ConcertController@sent')->name('concert.sent');
 Route::get('/concert/{id}', 'ConcertController@show')->name('concert.show');
+Route::get('/concert/{id}/addInterpret', 'ConcertController@addInterpret')->name('concert.addInterpret');
+Route::post('/concert/{id}/sentInterpret', 'ConcertController@sentInterpret')->name('concert.sentInterpret');
 
 //festival
 Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');

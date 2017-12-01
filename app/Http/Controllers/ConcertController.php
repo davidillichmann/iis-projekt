@@ -30,6 +30,22 @@ class ConcertController extends Controller {
         return redirect(route('concert.show', $newConcertId));
     }
 
+    public function addInterpret($concertId)
+    {
+        $interpretItems = iisInterpretRepository()->getAllItems();
+        return view('concert.addInterpret', compact('interpretItems','concertId'));
+    }
+
+    public function sentInterpret(Request $data, $concertId)
+    {
+        $data = $this->addInterpretValidator($data);
+        $data['concertId'] = $concertId;
+        if(iisInterpretRepository()->getItemById($data['interpretId'])) {
+            iisInterpretAtConcertRepository()->insertGetId($data);
+        }
+        return redirect(route('concert.show', $concertId));
+    }
+
     protected function validator(Request $data)
     {
         return $data->validate([
@@ -38,6 +54,15 @@ class ConcertController extends Controller {
             'image' => 'required|file',
             'description' => 'required|string|max:255',
             'capacity' => 'required|integer|max:99999999999',
+            'date' => 'required|date',
+        ]);
+    }
+
+    protected function addInterpretValidator(Request $data)
+    {
+        return $data->validate([
+            'interpretId' => 'required|integer',
+            'order' => 'required|integer|max:5',
             'date' => 'required|date',
         ]);
     }

@@ -4,6 +4,9 @@
     <div class="container">
         <!-- Page Heading -->
         <h1 class="text-center">{{ $concertItem->getName() }}</h1>
+        <a href="{{ route('concert.addInterpret', $concertItem->getId()) }}">
+            <button type="button" class="btn btn-success">Add Interpret to Concert</button>
+        </a>
         <hr>
 
         {{-- Page content--}}
