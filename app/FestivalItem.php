@@ -85,6 +85,11 @@ class FestivalItem extends EventItem implements FestivalItemInterface {
         return $this->order;
     }
 
+    public function getStageItemsByFestivalId()
+    {
+        return iisStageRepository()->getItemsByFestivalId($this->getId());
+    }
+
     /**
      * @return mixed
      */

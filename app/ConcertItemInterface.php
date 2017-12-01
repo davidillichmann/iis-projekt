@@ -34,5 +34,6 @@ interface ConcertItemInterface {
      */
     public function getId();
 
-    public function getEventItem();
+
+    public function getInterpretAtConcertItems();
 }

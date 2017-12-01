@@ -22,5 +22,16 @@
         Festival Created At = {{ $festivalItem->getCreatedAt() }} <br>
         Event Created At = {{ $festivalItem->getEventCreatedAt() }} <br>
 
+        <hr>
+        Festival stages: <br> <br>
+        @foreach($festivalItem->getStageItemsByFestivalId() as $stageItem)
+            <b>Stage Name:</b> {{ $stageItem->getName() }} <br>
+            @foreach($stageItem->getInterpretAtStageItems() as $interpretAtStageItem)
+                <b>Interpret Name:</b> {{ $interpretAtStageItem->getName() }} <br>
+                <b>Time:</b> {{ $interpretAtStageItem->getDate() }} <br>
+            @endforeach
+            <br>
+        @endforeach
+
     </div>
 @endsection
