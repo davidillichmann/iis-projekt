@@ -57,5 +57,6 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(StageRepositoryInterface::class, StageRepository::class);
         $this->app->singleton(InterpretAtStageRepositoryInterface::class, InterpretAtStageRepository::class);
         $this->app->singleton(TicketTypeRepositoryInterface::class, TicketTypeRepository::class);
+        echo (4);
     }
 }
