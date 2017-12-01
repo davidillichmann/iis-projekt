@@ -69,3 +69,31 @@ if (! function_exists('iisInterpretAtConcertRepository')) {
         return $repository;
     }
 }
+
+if (! function_exists('iisStageRepository')) {
+    /**
+     * @return \App\Repositories\StageRepositoryInterface
+     */
+    function iisStageRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\StageRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}
+
+if (! function_exists('iisInterpretAtStageRepository')) {
+    /**
+     * @return \App\Repositories\InterpretAtStageRepositoryInterface
+     */
+    function iisInterpretAtStageRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\InterpretAtStageRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}

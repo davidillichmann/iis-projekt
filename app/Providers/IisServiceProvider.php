@@ -10,8 +10,12 @@ use App\Repositories\FestivalRepository;
 use App\Repositories\FestivalRepositoryInterface;
 use App\Repositories\InterpretAtConcertRepository;
 use App\Repositories\InterpretAtConcertRepositoryInterface;
+use App\Repositories\InterpretAtStageRepository;
+use App\Repositories\InterpretAtStageRepositoryInterface;
 use App\Repositories\InterpretRepository;
 use App\Repositories\InterpretRepositoryInterface;
+use App\Repositories\StageRepository;
+use App\Repositories\StageRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 include __DIR__ . '/../helpers-repositories.php';
@@ -48,5 +52,7 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(EventRepositoryInterface::class, EventRepository::class);
         $this->app->singleton(InterpretRepositoryInterface::class, InterpretRepository::class);
         $this->app->singleton(InterpretAtConcertRepositoryInterface::class, InterpretAtConcertRepository::class);
+        $this->app->singleton(StageRepositoryInterface::class, StageRepository::class);
+        $this->app->singleton(InterpretAtStageRepositoryInterface::class, InterpretAtStageRepository::class);
     }
 }

@@ -28,7 +28,7 @@
 
                     <hr>
                     <b>Interprets</b>: <br>
-                    @foreach($concertItem->getInterprets() as $interpretAtConcertItem)
+                    @foreach($concertItem->getInterpretAtConcertItems() as $interpretAtConcertItem)
                         <b>Interpret Name</b>:
                             <a href="{{ route('interpret.show', $interpretAtConcertItem->getId()) }}">
                                 {{ $interpretAtConcertItem->getName() }}</a> <br>

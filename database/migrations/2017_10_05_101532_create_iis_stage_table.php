@@ -15,6 +15,7 @@ class CreateIisStageTable extends Migration
     {
         Schema::create('iis_stage', function (Blueprint $table) {
             $table->increments('iis_stageid');
+            $table->increments('iis_festivalid');
             $table->string('name');
             $table->timestamps();
             $table->index('iis_stageid');
