@@ -82,4 +82,9 @@ class ConcertItem extends EventItem implements ConcertItemInterface {
         return iisInterpretAtConcertRepository()->getItemsByIisConcertIdSortedByOrder($this->iis_concertid);
     }
 
+    public function getTickets()
+    {
+        return iisTicketTypeRepository()->getItemsByIisEventIdSortedByPrice($this->iis_eventid);
+    }
+
 }
