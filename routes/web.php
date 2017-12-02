@@ -13,6 +13,12 @@ Route::post('/concert/{id}/sentInterpret', 'ConcertController@sentInterpret')->n
 //festival
 Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
 
+//stage
+Route::get('/festival/{id}/stage/add', 'StageController@add')->name('stage.add');
+Route::post('/festival/{id}/stage/add', 'StageController@sent')->name('stage.sent');
+Route::get('/festival/{festivalid}/stage/{stageid}/addInterpret', 'StageController@addInterpret')->name('stage.addInterpret');
+Route::post('/festival/{festivalid}/stage/{stageid}/sentInterpret', 'StageController@sentInterpret')->name('stage.sentInterpret');
+
 //search
 Route::get('/search', 'SearchController@index')->name('search.index');
 

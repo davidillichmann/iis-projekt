@@ -43,6 +43,17 @@ class InterpretAtStageRepository extends InterpretRepository implements Interpre
             ->select(DB::raw(implode(',', $this->columnsInterpretAtStage)));
     }
 
+    public function insertGetId(array $data)
+    {
+        return DB::table('iis_stage_iis_interpret')->insertGetId([
+            'iis_stageid' => $data['stageId'],
+            'iis_interpretid' => $data['interpretId'],
+            'date' => $data['date'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
+
 //    public function getItemById($id)
 //    {
 //        return $this->_toItem($this->getQueryBuilder()

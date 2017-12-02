@@ -22,11 +22,28 @@ class StageRepository implements StageRepositoryInterface {
             ->select(DB::raw(implode(',', $this->columns)));
     }
 
+    public function getItemById($stageId)
+    {
+        return $this->_toItem($this->getQueryBuilder()
+            ->where('iis_stageid', '=', $stageId)
+            ->first());
+    }
+
     public function getItemsByFestivalId($festivalId)
     {
         return $this->_toItems($this->getQueryBuilder()
             ->where('iis_stage.iis_festivalid', $festivalId)
             ->get());
+    }
+
+    public function insertGetId(array $data)
+    {
+        return DB::table('iis_stage')->insertGetId([
+            'name' => $data['name'],
+            'iis_festivalid' => $data['festivalId'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
     }
 
     private function _toItem($row)

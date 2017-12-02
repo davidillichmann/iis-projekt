@@ -8,7 +8,13 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Facades\DB;
+
 interface StageRepositoryInterface {
 
     public function getItemsByFestivalId($festivalId);
+
+    public function insertGetId(array $data);
+
+    public function getItemById($stageId);
 }

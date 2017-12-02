@@ -8,6 +8,11 @@
         <hr>
 
         {{-- Page content--}}
+        <a href="{{ route('stage.add', $festivalItem->getId()) }}">
+            <button type="button" class="btn btn-success">Add stage to Festival</button>
+        </a>
+        <br>
+        <hr>
 
         Festival ID = {{ $festivalItem->getId() }} <br>
         Event ID = {{ $festivalItem->getIisEventId() }} <br>
@@ -26,6 +31,9 @@
         Festival stages: <br> <br>
         @foreach($festivalItem->getStageItemsByFestivalId() as $stageItem)
             <b>Stage Name:</b> {{ $stageItem->getName() }} <br>
+            <a href="{{ route('stage.addInterpret', ['festivalid' => $festivalItem->getId(), 'stageid' => $stageItem->getId()]) }}">
+                <button type="button" class="btn btn-success">Add interpret to stage</button>
+            </a> <br>
             @foreach($stageItem->getInterpretAtStageItems() as $interpretAtStageItem)
                 <b>Interpret Name:</b> {{ $interpretAtStageItem->getName() }} <br>
                 <b>Time:</b> {{ $interpretAtStageItem->getDate() }} <br>
