@@ -86,4 +86,11 @@ class TicketTypeRepository implements TicketTypeRepositoryInterface {
         });
         return $this->_toItems($arrays);
     }
+
+    public function deleteItemById(int $ticketTypeId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_ticket_typeid', '=', $ticketTypeId)
+            ->delete();
+    }
 }

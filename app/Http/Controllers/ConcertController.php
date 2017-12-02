@@ -30,13 +30,13 @@ class ConcertController extends Controller {
         return redirect(route('concert.show', $newConcertId));
     }
 
-    public function editForm($concertId)
+    public function editForm(int $concertId)
     {
         $concertItem = iisConcertRepository()->getItemById($concertId);
         return view('concert.edit', compact('concertItem'));
     }
 
-    public function edit(Request $data, $concertId)
+    public function edit(Request $data, int $concertId)
     {
         $data = $this->validatorEdit($data);
         if($concertItem = iisConcertRepository()->getItemById($concertId)) {
@@ -46,7 +46,7 @@ class ConcertController extends Controller {
         return redirect(route('concert.show', $concertId));
     }
 
-    public function delete($concertId, $eventId)
+    public function delete(int $concertId, int $eventId)
     {
         iisInterpretAtConcertRepository()->deleteByConcertId($concertId);
         iisEventRepository()->deleteById($eventId);
@@ -61,7 +61,7 @@ class ConcertController extends Controller {
         return view('concert.addInterpret', compact('interpretItems','concertId'));
     }
 
-    public function sentInterpret(Request $data, $concertId)
+    public function sentInterpret(Request $data, int $concertId)
     {
         $data = $this->addInterpretValidator($data);
         $data['concertId'] = $concertId;
@@ -108,4 +108,33 @@ class ConcertController extends Controller {
             'date' => 'required|date',
         ]);
     }
+
+    public function addTicketType(int $eventId)
+    {
+        return view('concert.addTicketType', compact('eventId'));
+    }
+
+    public function sentTicketType(Request $data, int $eventId)
+    {
+        $data = $this->addTicketValidator($data);
+        $data['eventId'] = $eventId;
+        iisTicketTypeRepository()->insertGetId($data, $eventId);
+
+        return redirect(route('concert.show', $eventId));
+    }
+
+    public function deleteTicketType(int $concertId, int $ticketTypeId)
+    {
+        iisTicketTypeRepository()->deleteItemById($ticketTypeId);
+        return redirect(route('concert.show',$concertId));
+    }
+
+    protected function addTicketValidator(Request $data)
+    {
+        return $data->validate([
+            'type' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+        ]);
+    }
+
 }
