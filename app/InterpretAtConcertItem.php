@@ -30,7 +30,7 @@ class InterpretAtConcertItem extends InterpretItem {
         if (!is_null($row))
         {
             parent::__construct($row);
-            $this->iis_interpret_iis_concertid = $row['iis_interpret_iis_concertid'];
+            $this->iis_interpretid_iis_concertid = $row['iis_interpret_iis_concertid'];
             $this->order = $row['order'];
             $this->date = $row['date'];
         }

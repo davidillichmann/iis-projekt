@@ -19,5 +19,9 @@ interface ConcertRepositoryInterface {
 
     public function insertGetId(array $data, int $eventId);
 
+    public function updateById(array $data, $concertId);
+
+    public function deleteById(int $concertId);
+
 //    public function save($eventid, $capacity, $date);
 }

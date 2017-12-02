@@ -9,6 +9,10 @@ Route::post('/concert/new', 'ConcertController@sent')->name('concert.sent');
 Route::get('/concert/{id}', 'ConcertController@show')->name('concert.show');
 Route::get('/concert/{id}/addInterpret', 'ConcertController@addInterpret')->name('concert.addInterpret');
 Route::post('/concert/{id}/sentInterpret', 'ConcertController@sentInterpret')->name('concert.sentInterpret');
+Route::get('/concert/{concertid}/deleteInterpret/{concertinterpretid}', 'ConcertController@deleteInterpret')->name('concert.deleteInterpret');
+Route::get('/concert/{id}/editForm', 'ConcertController@editForm')->name('concert.editForm');
+Route::post('/concert/{concertid}/edit', 'ConcertController@edit')->name('concert.edit');
+Route::get('/concert/{concertid}/delete/{eventid}', 'ConcertController@delete')->name('concert.delete');
 
 //festival
 Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');

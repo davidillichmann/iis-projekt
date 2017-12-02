@@ -57,4 +57,35 @@ class EventRepository implements EventRepositoryInterface {
         ]);
     }
 
+    public function updateById(array $data, $eventId)
+    {
+        if(isset($data['image'])) {
+            return DB::table('iis_event')
+                ->where('iis_eventid', '=', $eventId)
+                ->update([
+                    'name' => $data['name'],
+                    'location' => $data['location'],
+                    'description' => $data['description'],
+                    'image' => $data['image'],
+                    'updated_at' => date("Y-m-d H:i:s"),
+                ]);
+        } else {
+            return DB::table('iis_event')
+                ->where('iis_eventid', '=', $eventId)
+                ->update([
+                    'name' => $data['name'],
+                    'location' => $data['location'],
+                    'description' => $data['description'],
+                    'updated_at' => date("Y-m-d H:i:s"),
+                ]);
+        }
+    }
+
+    public function deleteById(int $eventId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_eventid', '=', $eventId)
+            ->delete();
+    }
+
 }

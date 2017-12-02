@@ -23,5 +23,9 @@ interface EventRepositoryInterface {
 
     public function getItemById(int $id);
 
+    public function updateById(array $data, $eventId);
+
+    public function deleteById(int $eventId);
+
 //    public function save($name, $location, $image, $description);
 }

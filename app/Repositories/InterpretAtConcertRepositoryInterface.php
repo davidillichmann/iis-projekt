@@ -16,4 +16,8 @@ interface InterpretAtConcertRepositoryInterface {
 
     public function insertGetId(array $data);
 
+    public function deleteById(int $concertInterpretId);
+
+    public function deleteByConcertId(int $concertId);
+
 }

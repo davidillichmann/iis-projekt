@@ -4,8 +4,11 @@
     <div class="container">
         <!-- Page Heading -->
         <h1 class="text-center">{{ $concertItem->getName() }}</h1>
-        <a href="{{ route('concert.addInterpret', $concertItem->getId()) }}">
-            <button type="button" class="btn btn-success">Add Interpret to Concert</button>
+        <a href="{{ route('concert.editForm', $concertItem->getId()) }}">
+            <button type="button" class="btn btn-info">Edit concert</button>
+        </a>
+        <a href="{{ route('concert.delete', ['concertid' => $concertItem->getId(), 'eventid' => $concertItem->getIisEventid()]) }}">
+            <button type="button" class="btn btn-danger">Delete concert</button>
         </a>
         <hr>
 
@@ -36,6 +39,9 @@
 
                     <hr>
                     <b>Interprets</b>: <br>
+                    <a href="{{ route('concert.addInterpret', $concertItem->getId()) }}">
+                        <button type="button" class="btn btn-success">Add Interpret to Concert</button>
+                    </a> <br>
                     @foreach($concertItem->getInterpretAtConcertItems() as $interpretAtConcertItem)
                         <b>Interpret Name</b>:
                         <a href="{{ route('interpret.show', $interpretAtConcertItem->getId()) }}">
@@ -47,6 +53,9 @@
 
                         <b>Order</b>: {{ $interpretAtConcertItem->getOrder() }} <br>
                         <b>Date/Time</b>: {{ $interpretAtConcertItem->getDate() }} <br>
+                        <a href="{{ route('concert.deleteInterpret', ['concertid' => $concertItem->getId(), 'concertinterpretid' => $interpretAtConcertItem->getIisInterpretidIisConcertid()]) }}">
+                            <button type="button" class="btn btn-outline-danger">Delete interpret from stage</button>
+                        </a>
                         <hr>
                     @endforeach
                 </div>

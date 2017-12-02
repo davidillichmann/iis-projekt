@@ -70,4 +70,22 @@ class ConcertRepository implements ConcertRepositoryInterface {
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
     }
+
+    public function updateById(array $data, $concertId)
+    {
+        return DB::table('iis_concert')
+            ->where('iis_concertid', '=', $concertId)
+            ->update([
+                'capacity' => $data['capacity'],
+                'date' => $data['date'],
+                'updated_at' => date("Y-m-d H:i:s"),
+            ]);
+    }
+
+    public function deleteById(int $concertId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_concertid', '=', $concertId)
+            ->delete();
+    }
 }
