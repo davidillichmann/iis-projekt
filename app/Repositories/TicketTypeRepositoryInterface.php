@@ -19,5 +19,7 @@ interface TicketTypeRepositoryInterface {
 
     public function getItemsByIisEventIdSortedByPrice(int $eventId);
 
+    public function deleteItemById(int $ticketTypeId);
+
 //    public function save($eventid, $capacity, $date);
 }
