@@ -18,7 +18,12 @@ Route::post('/concert/{concertid}/edit', 'ConcertController@edit')->name('concer
 Route::get('/concert/{concertid}/delete/{eventid}', 'ConcertController@delete')->name('concert.delete');
 
 //festival
+Route::get('/festival/new', 'FestivalController@add')->name('festival.add');
+Route::post('/festival/new', 'FestivalController@sent')->name('festival.sent');
 Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
+Route::get('/festival/{id}/editForm', 'FestivalController@editForm')->name('festival.editForm');
+Route::post('/festival/{id}/edit', 'FestivalController@edit')->name('festival.edit');
+Route::get('/festival/{festivalid}/delete/{eventid}', 'FestivalController@delete')->name('festival.delete');
 
 //stage
 Route::get('/festival/{id}/stage/add', 'StageController@add')->name('stage.add');

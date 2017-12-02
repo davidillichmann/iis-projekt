@@ -55,7 +55,7 @@
                         @endif
                     </div>
 
-                    <button class="btn btn-lg btn-outline-danger" type="submit">Create concert</button>
+                    <button class="btn btn-lg btn-outline-danger" type="submit">Edit concert</button>
                 </form>
             </div>
         </div>

@@ -37,6 +37,39 @@ class FestivalRepository implements FestivalRepositoryInterface {
             ->first());
     }
 
+    public function insertGetId(array $data, int $eventId)
+    {
+        return DB::table('iis_festival')->insertGetId([
+            'iis_eventid' => $eventId,
+            'interval' => $data['interval'],
+            'order' => $data['order'],
+            'start_date' => $data['start_date'],
+            'end_date' => $data['end_date'],
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
+
+    public function updateById(array $data, $festivalId)
+    {
+        return DB::table('iis_festival')
+            ->where('iis_festivalid', '=', $festivalId)
+            ->update([
+                'interval' => $data['interval'],
+                'order' => $data['order'],
+                'start_date' => $data['start_date'],
+                'end_date' => $data['end_date'],
+                'updated_at' => date("Y-m-d H:i:s"),
+            ]);
+    }
+
+    public function deleteById(int $festivalId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_festivalid', '=', $festivalId)
+            ->delete();
+    }
+
     private function _toItem($row)
     {
         if($row) {
