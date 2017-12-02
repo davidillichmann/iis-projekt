@@ -46,6 +46,24 @@ class StageRepository implements StageRepositoryInterface {
         ]);
     }
 
+    public function updateById(array $data, $stageId)
+    {
+        return DB::table('iis_stage')
+            ->where('iis_stageid', '=', $stageId)
+            ->update([
+            'name' => $data['name'],
+            'iis_festivalid' => $data['festivalId'],
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
+
+    public function deleteById(int $stageId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_stageid', '=', $stageId)
+            ->delete();
+    }
+
     private function _toItem($row)
     {
         if($row) {

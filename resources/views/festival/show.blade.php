@@ -33,10 +33,19 @@
             <b>Stage Name:</b> {{ $stageItem->getName() }} <br>
             <a href="{{ route('stage.addInterpret', ['festivalid' => $festivalItem->getId(), 'stageid' => $stageItem->getId()]) }}">
                 <button type="button" class="btn btn-success">Add interpret to stage</button>
+            </a>
+            <a href="{{ route('stage.editForm', ['festivalid' => $festivalItem->getId(), 'stageid' => $stageItem->getId()]) }}">
+                <button type="button" class="btn btn-info">Edit stage</button>
+            </a>
+            <a href="{{ route('stage.delete', ['festivalid' => $festivalItem->getId(), 'stageid' => $stageItem->getId()]) }}">
+                <button type="button" class="btn btn-danger">Delete stage</button>
             </a> <br>
             @foreach($stageItem->getInterpretAtStageItems() as $interpretAtStageItem)
                 <b>Interpret Name:</b> {{ $interpretAtStageItem->getName() }} <br>
-                <b>Time:</b> {{ $interpretAtStageItem->getDate() }} <br>
+                <b>Time:</b> {{ $interpretAtStageItem->getDate() }}
+                <a href="{{ route('stage.deleteInterpret', ['festivalid' => $festivalItem->getId(), 'stageid' => $stageItem->getId(), 'stageinterpretid' => $interpretAtStageItem->getIisStageIisInterpretid()]) }}">
+                    <button type="button" class="btn btn-outline-danger">Delete interpret from stage</button>
+                </a> <br>
             @endforeach
             <br>
         @endforeach

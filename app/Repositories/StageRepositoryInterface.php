@@ -17,4 +17,8 @@ interface StageRepositoryInterface {
     public function insertGetId(array $data);
 
     public function getItemById($stageId);
+
+    public function deleteById(int $stageId);
+
+    public function updateById(array $data, $stageId);
 }

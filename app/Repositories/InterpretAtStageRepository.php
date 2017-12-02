@@ -54,6 +54,20 @@ class InterpretAtStageRepository extends InterpretRepository implements Interpre
         ]);
     }
 
+    public function deleteById(int $stageInterpretId)
+    {
+        $this->getQueryBuilder()->
+            where('iis_stage_iis_interpretid', '=', $stageInterpretId)
+            ->delete();
+    }
+
+    public function deleteByStageId(int $stageId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_stageid', '=', $stageId)
+            ->delete();
+    }
+
 //    public function getItemById($id)
 //    {
 //        return $this->_toItem($this->getQueryBuilder()

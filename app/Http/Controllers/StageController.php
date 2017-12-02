@@ -20,6 +20,29 @@ class StageController extends Controller {
         return redirect(route('festival.show', $festivalId));
     }
 
+    public function editForm($festivalId, $stageId)
+    {
+        $stageItem = iisStageRepository()->getItemById($stageId);
+        return view('stage.edit', compact('festivalId', 'stageItem'));
+    }
+
+    public function edit(Request $data, $festivalId, $stageId)
+    {
+        $data = $data->validate(['name' => 'required|string|max:255']);
+        $data['festivalId'] = $festivalId;
+        if(iisStageRepository()->getItemById($stageId)) {
+            iisStageRepository()->updateById($data, $stageId);
+        }
+        return redirect(route('festival.show', $festivalId));
+    }
+
+    public function delete($festivalId, $stageId)
+    {
+        iisInterpretAtStageRepository()->deleteByStageId($stageId);
+        iisStageRepository()->deleteById($stageId);
+        return redirect(route('festival.show', $festivalId));
+    }
+
     public function addInterpret($festivalId, $stageId)
     {
         $interpretItems = iisInterpretRepository()->getAllItems();
@@ -34,8 +57,14 @@ class StageController extends Controller {
         if (iisStageRepository()->getItemById($stageId) && iisConcertRepository()->getItemById($data['interpretId']))
         {
             iisInterpretAtStageRepository()->insertGetId($data);
-            return redirect(route('festival.show', $festivalId));
         }
+        return redirect(route('festival.show', $festivalId));
+    }
+
+    public function deleteInterpret(int $festivalId, int $stageId, int $stageInterpretId)
+    {
+        iisInterpretAtStageRepository()->deleteById($stageInterpretId);
+        return redirect(route('festival.show', $festivalId));
     }
 
     protected function addInterpretValidator(Request $data)

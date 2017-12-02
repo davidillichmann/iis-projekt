@@ -18,6 +18,10 @@ Route::get('/festival/{id}/stage/add', 'StageController@add')->name('stage.add')
 Route::post('/festival/{id}/stage/add', 'StageController@sent')->name('stage.sent');
 Route::get('/festival/{festivalid}/stage/{stageid}/addInterpret', 'StageController@addInterpret')->name('stage.addInterpret');
 Route::post('/festival/{festivalid}/stage/{stageid}/sentInterpret', 'StageController@sentInterpret')->name('stage.sentInterpret');
+Route::get('/festival/{festivalid}/stage/{stageid}/deleteInterpret/{stageinterpretid}', 'StageController@deleteInterpret')->name('stage.deleteInterpret');
+Route::get('/festival/{festivalid}/stage/{stageid}/delete', 'StageController@delete')->name('stage.delete');
+Route::get('/festival/{festivalid}/stage/{stageid}/editForm', 'StageController@editForm')->name('stage.editForm');
+Route::post('/festival/{festivalid}/stage/{stageid}/edit', 'StageController@edit')->name('stage.edit');
 
 //search
 Route::get('/search', 'SearchController@index')->name('search.index');
