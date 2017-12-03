@@ -8,8 +8,11 @@
         <hr>
 
         {{-- Page content--}}
-        <a href="{{ route('stage.add', $festivalItem->getId()) }}">
-            <button type="button" class="btn btn-success">Add stage to Festival</button>
+        <a href="{{ route('festival.editForm', $festivalItem->getId()) }}">
+            <button type="button" class="btn btn-success">Edit festival</button>
+        </a>
+        <a href="{{ route('festival.delete', ['festivalid' => $festivalItem->getId(), 'eventid' => $festivalItem->getIisEventid()]) }}">
+            <button type="button" class="btn btn-danger">Delete concert</button>
         </a>
         <br>
         <hr>
@@ -29,6 +32,9 @@
 
         <hr>
         Festival stages: <br> <br>
+        <a href="{{ route('stage.add', $festivalItem->getId()) }}">
+            <button type="button" class="btn btn-success">Add stage to Festival</button>
+        </a> <br>
         @foreach($festivalItem->getStageItemsByFestivalId() as $stageItem)
             <b>Stage Name:</b> {{ $stageItem->getName() }} <br>
             <a href="{{ route('stage.addInterpret', ['festivalid' => $festivalItem->getId(), 'stageid' => $stageItem->getId()]) }}">

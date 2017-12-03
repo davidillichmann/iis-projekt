@@ -49,7 +49,11 @@
 
         <hr>
         <h1 class="text-left">Festivals</h1>
+        <a href="{{ route('festival.add') }}">
+            <button type="button" class="btn btn-success">New festival</button>
+        </a>
         <hr>
+
 
             <div id="homepage__festival-carousel-indicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">

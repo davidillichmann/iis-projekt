@@ -64,6 +64,13 @@ class StageRepository implements StageRepositoryInterface {
             ->delete();
     }
 
+    public function deleteByFestivalId(int $festivalId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_festivalid', '=', $festivalId)
+            ->delete();
+    }
+
     private function _toItem($row)
     {
         if($row) {

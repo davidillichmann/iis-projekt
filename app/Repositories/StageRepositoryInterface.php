@@ -21,4 +21,6 @@ interface StageRepositoryInterface {
     public function deleteById(int $stageId);
 
     public function updateById(array $data, $stageId);
+
+    public function deleteByFestivalId(int $festivalId);
 }
