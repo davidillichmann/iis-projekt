@@ -75,7 +75,7 @@ class TicketRepository extends TicketTypeRepository implements TicketRepositoryI
     private function _toItem($row)
     {
         if($row) {
-            return new InterpretAtConcertItem((array) $row);
+            return new TicketItem((array) $row);
         }
     }
 
