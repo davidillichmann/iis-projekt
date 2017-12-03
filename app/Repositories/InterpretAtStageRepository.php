@@ -61,6 +61,13 @@ class InterpretAtStageRepository extends InterpretRepository implements Interpre
             ->delete();
     }
 
+    public function deleteByInterpretId(int $interpretId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_interpretid', '=', $interpretId)
+            ->delete();
+    }
+
     public function deleteByStageId(int $stageId)
     {
         $this->getQueryBuilder()->

@@ -43,6 +43,9 @@ Route::get('/interprets', 'InterpretController@index')->name('interpret.index');
 Route::get('/interpret/new', 'InterpretController@add')->name('interpret.add');
 Route::post('/interpret/new', 'InterpretController@sent')->name('interpret.sent');
 Route::get('/interpret/{id}', 'InterpretController@show')->name('interpret.show');
+Route::get('/interpret/{id}/delete', 'InterpretController@delete')->name('interpret.delete');
+Route::get('/interpret/{id}/editForm', 'InterpretController@editForm')->name('interpret.editForm');
+Route::post('/interpret/{id}/edit', 'InterpretController@edit')->name('interpret.edit');
 
 
 // Login and Register Routes

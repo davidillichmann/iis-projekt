@@ -20,4 +20,6 @@ interface InterpretAtConcertRepositoryInterface {
 
     public function deleteByConcertId(int $concertId);
 
+    public function deleteByInterpretId(int $interpretId);
+
 }

@@ -33,6 +33,29 @@ class InterpretController extends Controller
 
         return redirect(route('interpret.show', $newInterpretId));
     }
+    public function editForm(int $interpretId)
+    {
+        $interpretItem = iisInterpretRepository()->getItemById($interpretId);
+        return view('interpret.edit', compact('interpretItem'));
+    }
+
+    public function edit(Request $data, int $interpretId)
+    {
+        $data = $this->validatorEdit($data);
+        if($interpretItem = iisInterpretRepository()->getItemById($interpretId)) {
+            iisInterpretRepository()->updateById($data, $interpretId);
+        }
+        return redirect(route('interpret.show', $interpretId));
+    }
+
+    public function delete(int $interpretId)
+    {
+        iisInterpretAtStageRepository()->deleteByInterpretId($interpretId);
+        iisInterpretAtConcertRepository()->deleteByInterpretId($interpretId);
+        iisInterpretRepository()->deleteById($interpretId);
+
+        return redirect(route('interpret.index'));
+    }
 
     protected function validator(Request $data)
     {
@@ -42,6 +65,18 @@ class InterpretController extends Controller
             'genre' => 'required|string|max:255',
             'publisher' => 'required|string|max:255',
             'image' => 'required|file',
+            'description' => 'required|string|max:255',
+            'formed_at' => 'required|date',
+        ]);
+    }
+
+    protected function validatorEdit(Request $data)
+    {
+        return $data->validate([
+            'name' => 'required|string|max:255',
+            'members' => 'required|string|max:255',
+            'genre' => 'required|string|max:255',
+            'publisher' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'formed_at' => 'required|date',
         ]);

@@ -47,6 +47,13 @@ class InterpretAtConcertRepository extends InterpretRepository implements Interp
             ->delete();
     }
 
+    public function deleteByInterpretId(int $interpretId)
+    {
+        $this->getQueryBuilder()->
+        where('iis_interpretid', '=', $interpretId)
+            ->delete();
+    }
+
     public function deleteByConcertId(int $concertId)
     {
         $this->getQueryBuilder()->

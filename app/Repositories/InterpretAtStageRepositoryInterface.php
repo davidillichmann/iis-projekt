@@ -13,4 +13,6 @@ interface InterpretAtStageRepositoryInterface {
     public function deleteById(int $stageInterpretId);
 
     public function deleteByStageId(int $stageId);
+
+    public function deleteByInterpretId(int $interpretId);
 }
