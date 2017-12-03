@@ -109,18 +109,20 @@ class ConcertController extends Controller {
         ]);
     }
 
-    public function addTicketType(int $eventId)
+    public function addTicketType(int $eventId, Request $data)
     {
-        return view('concert.addTicketType', compact('eventId'));
+        $concertId = $data['concertId'];
+        return view('concert.addTicketType', compact('eventId', 'concertId'));
     }
 
     public function sentTicketType(Request $data, int $eventId)
     {
+        $concertId = $data['concertId'];
         $data = $this->addTicketValidator($data);
-        $data['eventId'] = $eventId;
+
         iisTicketTypeRepository()->insertGetId($data, $eventId);
 
-        return redirect(route('concert.show', $eventId));
+        return redirect(route('concert.show', $concertId));
     }
 
     public function deleteTicketType(int $concertId, int $ticketTypeId)

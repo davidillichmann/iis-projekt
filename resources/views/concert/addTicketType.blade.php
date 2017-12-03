@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container">
-
         <!-- Page Heading -->
         <h1 class="text-left">Add Ticket to concert</h1>
         <hr>
@@ -10,9 +9,8 @@
         {{-- Page content--}}
         <div class="container">
             <div class="row">
-                <form method="POST" action="{{ route('concert.sentTicketType', $eventId) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('concert.sentTicketType', ['eventId' => $eventId, 'concertId' => $concertId]) }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
-
                     <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
                         <label for="type">Select ticket type:</label>
                             <select class="form-control" id="type" name="type">
