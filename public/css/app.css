@@ -18,87 +18,6 @@ body {
   margin: 0;
 }
 
-#navbar {
-  height: 40px;
-  navbar-default-bg: #d0e3cd;
-}
-
-#login_background_image {
-  background-image: url('/img/background/login/login.jpg');
-  background-size: cover;
-  position: fixed;
-  top: 40px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
-}
-
-#register_background_image2{
-  background-image: url('/img/background/register/register.jpg');
-  background-size: cover;
-  position: fixed;
-  top: 40px;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
-}
-
-#form-signin {
-  max-width: 330px;
-  padding: 30px;
-  margin: 120px auto;
-}
-
-#form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
-}
-#form-signin .form-control:focus {
-  z-index: 2;
-}
-
-#form-signin input[type="email"] {
-  background-color: #b2b6b4;
-}
-#form-signin input[type="password"] {
-  background-color: #b2b6b4;
-}
-#form-signin input[id="name"]
-{
-  background-color: #b2b6b4;
-}
-#form-signin input[id="phone"]
-{
-  background-color: #b2b6b4;
-}
-#form-signin button[id="signButton"] {
-  color: #a5a5a5;
-  border-color: #a5a5a5;
-//background-color: rgba(165, 165, 162, 0.12);
-}
-#left-column
-{
-  width: 500px;
-  height: 50px;
-  float: left;
-}
-
-#right-column
-{
-  width: 500px;
-  margin-left:50px;
-  height: 50px;
-  float: left;
-}
-
-/*         ORIGINAL        */
 article,
 aside,
 footer,
@@ -10352,6 +10271,10 @@ a.text-gray-dark:hover {
 }
 
 .form-signin input[id="name"] {
+  background-color: #b2b6b4;
+}
+
+.form-signin input[id="phone"] {
   background-color: #b2b6b4;
 }
 
