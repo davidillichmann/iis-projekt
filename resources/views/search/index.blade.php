@@ -50,7 +50,7 @@
                     @foreach($concertItems as $concertItem)
                     <div class="col-lg-4">
                         <div class="card">
-                            <img class="card-img-top" src="..." alt="{{ $concertItem->getName() }}">
+                            <img class="card-img-top img-fluid" src="{{ $concertItem->getImage() }}" alt="{{ $concertItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="{{ route('concert.show', $concertItem->getId()) }}">Concert {{ $concertItem->getId() }}</a>
