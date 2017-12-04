@@ -14,7 +14,7 @@ class CreateIisInterpretTable extends Migration
     public function up()
     {
         Schema::create('iis_interpret', function (Blueprint $table) {
-            $table->increments('iis_interpretid');
+            $table->increments('iis_interpretid')->unsigned();
             $table->string('name');
             $table->string('members');
             $table->string('genre');

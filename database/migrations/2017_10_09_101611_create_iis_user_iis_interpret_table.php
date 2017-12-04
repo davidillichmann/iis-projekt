@@ -15,10 +15,10 @@ class CreateIisUserIisInterpretTable extends Migration
     {
         Schema::create('iis_user_iis_interpret', function (Blueprint $table) {
             $table->increments('iis_user_iis_interpretid');
-//            $table->foreign('iis_userid')->references('iis_userid')->on('iis_user');
-//            $table->foreign('iis_interpretid')->references('iis_interpretid')->on('iis_interpret');
-            $table->integer('iis_userid');
-            $table->integer('iis_interpretid');
+            $table->integer('iis_userid')->unsigned();
+            $table->integer('iis_interpretid')->unsigned();
+            $table->foreign('iis_userid')->references('iis_userid')->on('iis_user');
+            $table->foreign('iis_interpretid')->references('iis_interpretid')->on('iis_interpret');
             $table->timestamps();
             $table->index([
                 'iis_user_iis_interpretid',

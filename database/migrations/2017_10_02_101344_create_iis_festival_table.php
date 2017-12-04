@@ -13,10 +13,11 @@ class CreateIisFestivalTable extends Migration
      */
     public function up()
     {
+//        Schema::enableForeignKeyConstraints();
         Schema::create('iis_festival', function (Blueprint $table) {
             $table->increments('iis_festivalid');
-            $table->integer('iis_eventid');
-//            $table->foreign('iis_eventid')->references('iis_eventid')->on('iis_event');
+            $table->integer('iis_eventid')->unsigned();
+            $table->foreign('iis_eventid')->references('iis_eventid')->on('iis_event');
             $table->string('interval');
             $table->integer('order');
             $table->datetime('start_date');
