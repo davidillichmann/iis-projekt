@@ -405,7 +405,7 @@ DROP TABLE IF EXISTS `iis_ticket_type`;
 CREATE TABLE `iis_ticket_type` (
   `iis_ticket_typeid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `iis_eventid` int(10) unsigned NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -448,7 +448,7 @@ DROP TABLE IF EXISTS `iis_user`;
 CREATE TABLE `iis_user` (
   `iis_userid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` int(11) NOT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
