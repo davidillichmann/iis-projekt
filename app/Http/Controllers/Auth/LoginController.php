@@ -52,8 +52,8 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($request)) {
-            $role = iisUserRepository()->getItemByEmail(request('email'))->getRole();
-            session(['role' => $role]);
+//            $role = iisUserRepository()->getItemByEmail(request('email'))->getRole();
+//            session(['role' => $role]);
 
             return $this->sendLoginResponse($request);
         }
