@@ -96,6 +96,7 @@
                             </a>
                 </div>
             </div>
+            <hr>
         </div>
     </div>
 

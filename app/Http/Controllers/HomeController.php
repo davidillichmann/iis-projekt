@@ -20,4 +20,9 @@ class HomeController extends Controller
 
         return view('homepage', compact('concertItems', 'festivalItems'));
     }
+
+    public function doc()
+    {
+        return view('doc');
+    }
 }
