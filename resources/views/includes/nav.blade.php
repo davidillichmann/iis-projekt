@@ -8,7 +8,7 @@
         <a href="{{ route('home.index') }}"><button type="button" class="btn btn-link">Homepage</button></a>
         <a href="{{ route('search.index') }}"><button type="button" class="btn btn-link">Events</button></a>
         <a href="{{ route('interpret.index') }}"><button type="button" class="btn btn-link">Interprets</button></a>
-
+        <a href="{{ route('doc') }}">Dokumentace</a>
         <div class="input-group col-md-8">
             {{--<form class="form-inline" action="{{ route('search.index') }}">--}}
                 {{--<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search">--}}

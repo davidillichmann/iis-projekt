@@ -2,6 +2,7 @@
 
 //Homepage
 Route::get('/', 'HomeController@index')->name('home.index');
+Route::get('/doc', 'HomeController@doc')->name('doc');
 
 //concert
 Route::get('/concert/new', 'ConcertController@add')->name('concert.add');
