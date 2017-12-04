@@ -112,3 +112,17 @@ if (! function_exists('iisInterpretAtStageRepository')) {
     }
 }
 
+if (! function_exists('iisUserInterpretRepository')) {
+    /**
+     * @return \App\Repositories\UserInterpretRepositoryInterface
+     */
+    function iisUserInterpretRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\UserInterpretRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}
+

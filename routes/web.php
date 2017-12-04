@@ -47,6 +47,8 @@ Route::get('/interpret/{id}/delete', 'InterpretController@delete')->name('interp
 Route::get('/interpret/{id}/editForm', 'InterpretController@editForm')->name('interpret.editForm');
 Route::post('/interpret/{id}/edit', 'InterpretController@edit')->name('interpret.edit');
 
+Route::get('/interpret/{id}/like', 'InterpretController@like')->name('interpret.like');
+Route::get('/interpret/{id}/dislike', 'InterpretController@dislike')->name('interpret.dislike');
 
 // Login and Register Routes
 Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');

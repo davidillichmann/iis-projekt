@@ -52,9 +52,24 @@ class InterpretController extends Controller
     {
         iisInterpretAtStageRepository()->deleteByInterpretId($interpretId);
         iisInterpretAtConcertRepository()->deleteByInterpretId($interpretId);
+        iisUserInterpretRepository()->deleteByInterpretId($interpretId);
         iisInterpretRepository()->deleteById($interpretId);
 
         return redirect(route('interpret.index'));
+    }
+
+    public function dislike(int $interpretId)
+    {
+        iisUserInterpretRepository()->deleteByUserIdByInterpretId(auth()->id(), $interpretId);
+
+        return redirect(route('interpret.show', $interpretId));
+    }
+
+    public function like(int $interpretId)
+    {
+        iisUserInterpretRepository()->insertGetId(auth()->id(), $interpretId);
+
+        return redirect(route('interpret.show', $interpretId));
     }
 
     protected function validator(Request $data)

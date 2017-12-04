@@ -7,11 +7,28 @@
         <h1 class="text-center"><b>Interpret:</b> {{ $interpretItem->getName() }}</h1>
         <hr>
         <a href="{{ route('interpret.editForm', $interpretItem->getId()) }}">
-            <button type="button" class="btn btn-info">Edit concert</button>
+            <button type="button" class="btn btn-info">Edit interpret</button>
         </a>
         <a href="{{ route('interpret.delete', $interpretItem->getId()) }}">
-            <button type="button" class="btn btn-danger">Delete concert</button>
+            <button type="button" class="btn btn-danger">Delete interpret</button>
         </a>
+        @if(Auth::guest())
+            <!-- Neprihlaseny uzivatel -->
+            <a href="{{ route('login') }}">
+                <button type="button" class="btn btn-outline-danger">❤ Follow</button>
+            </a>
+        @else
+            <!-- Prihlaseny uzivatel -->
+            @if($interpretItem->getUserInterpretBoolByInterpretId())
+                <a href="{{ route('interpret.dislike', $interpretItem->getId()) }}">
+                    <button type="button" class="btn btn-outline-danger">❤ Following</button>
+                </a>
+            @else
+                <a href="{{ route('interpret.like', $interpretItem->getId()) }}">
+                    <button type="button" class="btn btn-outline-danger">❤ Follow</button>
+                </a>
+            @endif
+        @endif
         <hr>
 
         {{-- Page content--}}

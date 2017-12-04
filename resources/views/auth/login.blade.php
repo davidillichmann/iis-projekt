@@ -6,6 +6,8 @@
         <form class="form-signin" method="POST" action="/login">
             {{ csrf_field() }}
 
+            <p style="color: yellow;">New to our website? <br>
+                <a href="{{ route('register') }}" style="color: greenyellow"> Register here</a></p>
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
@@ -26,7 +28,7 @@
                 @endif
             </div>
 
-            <button class="btn btn-lg btn btn-outline-secondary" id="signButton" type="submit">Sign in</button>
+            <button class="btn btn-lg btn btn-outline-success" id="signButton" type="submit" style="color: greenyellow;">Sign in</button>
         </form>
     </div> <!-- /container -->
 

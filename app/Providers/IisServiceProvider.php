@@ -18,6 +18,8 @@ use App\Repositories\StageRepository;
 use App\Repositories\StageRepositoryInterface;
 use App\Repositories\TicketTypeRepository;
 use App\Repositories\TicketTypeRepositoryInterface;
+use App\Repositories\UserInterpretRepository;
+use App\Repositories\UserInterpretRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 include __DIR__ . '/../helpers-repositories.php';
@@ -57,5 +59,6 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(StageRepositoryInterface::class, StageRepository::class);
         $this->app->singleton(InterpretAtStageRepositoryInterface::class, InterpretAtStageRepository::class);
         $this->app->singleton(TicketTypeRepositoryInterface::class, TicketTypeRepository::class);
+        $this->app->singleton(UserInterpretRepositoryInterface::class, UserInterpretRepository::class);
     }
 }

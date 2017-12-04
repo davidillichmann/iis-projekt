@@ -151,4 +151,14 @@ class InterpretItem implements InterpretItemInterface {
         return $this->updated_at;
     }
 
+    /**
+     * @return bool
+     */
+    public function getUserInterpretBoolByInterpretId()
+    {
+        return iisUserInterpretRepository()->getItemByUserIdByInterpretId(auth()->id(), $this->getId())
+            ? true
+            : false;
+    }
+
 }

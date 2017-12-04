@@ -18,15 +18,15 @@
 
         <ul class="navbar-nav">
 
-            @if(App::isLocale('en'))
-                <li class="nav-item">
-                    <a class="nav-link" href="#">EN</a>
-                </li>
-            @else
-                <li class="nav-item">
-                    <a class="nav-link" href="#">CZ</a>
-                </li>
-            @endif
+            {{--@if(App::isLocale('en'))--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">EN</a>--}}
+                {{--</li>--}}
+            {{--@else--}}
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link" href="#">CZ</a>--}}
+                {{--</li>--}}
+            {{--@endif--}}
 
             @if (Auth::guest())
                 <li class="nav-item">
