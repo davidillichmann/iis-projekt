@@ -4,60 +4,54 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="text-center">Search</h1>
+        <h1 class="text-center">Events</h1>
         <hr>
 
         {{-- Page filter --}}
 
-        <form class="form-inline">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </div>
+        <form class="form-inline" action="{{ route('search.index') }}">
             <div class="form-group">
-                <label for="exampleSelect1">Event type:
-                    <select class="form-control" id="eventType">
-                        <option>---------</option>
-                        <option>Concerts</option>
-                        <option>Festivals</option>
+                <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search" value="{{ request('q') }}">
+                <label for="type">Event type:
+                    <select name="type" class="form-control" id="type">
+                        @if(request('type') == 1)
+                            <option value="0">---------</option>
+                            <option value="1" selected>Concerts</option>
+                            <option value="2">Festivals</option>
+                        @elseif(request('type') == 2)
+                            <option value="0">---------</option>
+                            <option value="1">Concerts</option>
+                            <option value="2" selected>Festivals</option>
+                        @else
+                            <option value="0" selected>---------</option>
+                            <option value="1">Concerts</option>
+                            <option value="2">Festivals</option>
+                        @endif
                     </select>
                 </label>
             </div>
-            <div class="form-group">
-                <div class="dropdown">
-                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> Event
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Festival</a></li>
-                        <li><a href="#">Concert</a></li>
-                    </ul>
-                </div>
-            </div>
+            <button type="submit" class="btn btn-success">Set filter</button>
         </form>
 
+        @if(request('type') == 1 || request('type') == 0)
         <hr>
         <h1 class="text-left">Concerts</h1>
-        <hr>
 
             <div class="container">
                 <div class="row">
+                    @if(! $concertItems)
+                        <p>Your request does not match any results</p>
+                    @endif
                     @foreach($concertItems as $concertItem)
                     <div class="col-lg-4">
-                        <div class="card">
+                        <div class="card" style="margin-bottom: 30px">
                             <img class="card-img-top img-fluid" src="{{ $concertItem->getImage() }}" alt="{{ $concertItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="{{ route('concert.show', $concertItem->getId()) }}">Concert {{ $concertItem->getId() }}</a>
+                                    <a href="{{ route('concert.show', $concertItem->getId()) }}">{{ $concertItem->getName() }}</a>
                                 </h4>
                                 <p class="card-text">
-                                    Name = {{ $concertItem->getName() }} <br>
-                                    <b>Date</b>: {{ $concertItem->getDate() }} <br>
+                                    <b>Date</b>: {{ date('d-m-Y', strtotime($concertItem->getDate())) }} <br>
                                     <b>Location</b>: {{ $concertItem->getLocation() }} <br>
                                     <b>Capacity</b>: {{ $concertItem->getCapacity() }} <br>
                                 </p>
@@ -68,27 +62,29 @@
                 </div>
                 <!-- /.row -->
             </div>
-
+        @endif
+        @if(request('type') == 2 || request('type') == 0)
         <hr>
         <h1 class="text-left">Festivals</h1>
-        <hr>
 
         {{-- Page content--}}
         <div class="container">
 
             <div class="row">
+                @if(! $festivalItems)
+                    <p>Your request does not match any results</p>
+                @endif
                 @foreach($festivalItems as $festivalItem)
                     <div class="col-lg-3">
-                        <div class="card h-100">
-
+                        <div class="card" style="margin-bottom: 30px">
+                            <img class="card-img-top img-fluid" src="{{  Storage::url($festivalItem->getImage()) }}" onerror="this.src='{{ $festivalItem->getImage() }}';" alt="{{ $festivalItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
-                                    <a href="{{ route('festival.show', $festivalItem->getId()) }}">Festival {{ $festivalItem->getId() }}</a>
+                                    <a href="{{ route('festival.show', $festivalItem->getId()) }}">{{ $festivalItem->getName() }}</a>
                                 </h4>
                                 <p class="card-text">
-                                    <b>Name</b>: {{ $festivalItem->getName() }} <br>
-                                    <b>Start Date</b>: {{ $festivalItem->getStartDate() }} <br>
-                                    <b>End Date</b>: {{ $festivalItem->getEndDate() }} <br>
+                                    <b>Start Date</b>: {{ date('d-m-Y', strtotime($festivalItem->getStartDate())) }} <br>
+                                    <b>End Date</b>: {{ date('d-m-Y', strtotime($festivalItem->getEndDate())) }} <br>
                                     <b>Location</b>: {{ $festivalItem->getLocation() }} <br>
                                     <b>Order</b>: {{ $festivalItem->getOrder() }} <br>
                                     <b>Interval</b>: {{ $festivalItem->getInterval() }} <br>
@@ -100,6 +96,7 @@
             </div>
             <!-- /.row -->
         </div>
+        @endif
 
     </div>
 @endsection

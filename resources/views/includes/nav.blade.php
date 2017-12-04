@@ -10,10 +10,10 @@
         <a href="{{ route('interpret.index') }}"><button type="button" class="btn btn-link">Interprets</button></a>
 
         <div class="input-group col-md-8">
-            <form class="form-inline" action="{{ route('search.index') }}">
-                <input name="q" class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            {{--<form class="form-inline" action="{{ route('search.index') }}">--}}
+                {{--<input name="q" class="form-control mr-sm-2" type="text" placeholder="Search">--}}
+                {{--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--}}
+            {{--</form>--}}
         </div>
 
         <ul class="navbar-nav">

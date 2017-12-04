@@ -4,7 +4,8 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="text-left">Interprets</h1>
+        <h1 class="text-center">Interprets</h1>
+        <hr>
         <a href="{{ route('interpret.add') }}">
             <button type="button" class="btn btn-success">New interpret</button>
         </a>

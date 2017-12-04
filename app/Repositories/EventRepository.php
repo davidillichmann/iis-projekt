@@ -84,8 +84,15 @@ class EventRepository implements EventRepositoryInterface {
     public function deleteById(int $eventId)
     {
         $this->getQueryBuilder()->
-        where('iis_eventid', '=', $eventId)
+            where('iis_eventid', '=', $eventId)
             ->delete();
+    }
+
+    public function searchByRequest($request)
+    {
+        return $this->getQueryBuilder()->where('name','like', '%'.$request.'%')
+            ->orwhere('location','like','%'.$request.'%')
+            ->get();
     }
 
 }
