@@ -16,7 +16,8 @@ class TicketItem extends TicketTypeItem {
         {
             parent::__construct($row);
             $this->iis_ticketid = $row['iis_ticketid'];
-            $this->iis_userid = auth()->userid;
+            $this->iis_userid = $row['iis_userid'];
+            $this->code = $row['code'];
             $this->created_at = $row['created_at'];
             $this->created_at = $row['updated_at'];
         }
@@ -60,6 +61,11 @@ class TicketItem extends TicketTypeItem {
     public function getIisTicketid ()
     {
         return $this->iis_ticketid;
+    }
+
+    public function getEventItem()
+    {
+        return iisEventRepository()->getItemById($this->getIisEventid());
     }
 
 }

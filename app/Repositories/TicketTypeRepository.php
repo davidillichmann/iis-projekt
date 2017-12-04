@@ -53,7 +53,7 @@ class TicketTypeRepository implements TicketTypeRepositoryInterface {
      * @param int $id
      * @return TicketTypeItemInterface TicketTypeItem
      */
-    public function getItemById(int $id): TicketTypeItemInterface
+    public function getItemById(int $id)
     {
         return $this->_toItem($this->getQueryBuilder()
             ->where('iis_ticket_typeid', $id)
@@ -74,10 +74,10 @@ class TicketTypeRepository implements TicketTypeRepositoryInterface {
         return $this->_toItems($arrays);
     }
 
-    public function insertGetId(array $data, int $eventId)
+    public function insertGetId(array $data)
     {
         return DB::table('iis_ticket_type')->insertGetId([
-            'iis_eventid' => $eventId,
+            'iis_eventid' => $data['eventId'],
             'type' => $data['type'],
             'price' => $data['price'],
             'created_at' => date("Y-m-d H:i:s"),

@@ -15,6 +15,7 @@ class TicketTypeItem  implements TicketTypeItemInterface {
     {
         if (!is_null($row))
         {
+//            dd($row);
             $this->iis_ticket_typeid = $row['iis_ticket_typeid'];
             $this->iis_eventid = $row['iis_eventid'];
             $this->type = $row['type'];

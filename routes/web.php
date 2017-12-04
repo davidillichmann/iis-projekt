@@ -36,8 +36,9 @@ Route::get('/festival/{festivalid}/stage/{stageid}/editForm', 'StageController@e
 Route::post('/festival/{festivalid}/stage/{stageid}/edit', 'StageController@edit')->name('stage.edit');
 
 //ticket
-Route::get('/event/{concertId}/buyTicket', 'TicketController@add')->name('ticket.add');
-Route::post('/event/{concertId}/buyTicket', 'TicketController@sent')->name('ticket.sent');
+Route::get('/event/{eventid}/orderTicket', 'TicketController@add')->name('ticket.add');
+Route::post('/event/{eventid}/orderTicket', 'TicketController@sent')->name('ticket.sent');
+Route::get('/event/{eventid}/pay', 'TicketController@payment')->name('ticket.payment');
 
 //user
 Route::get('/profile/{userId}', 'UserController@index')->name('user.index');
