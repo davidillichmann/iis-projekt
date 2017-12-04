@@ -22,6 +22,8 @@ use App\Repositories\TicketTypeRepository;
 use App\Repositories\TicketTypeRepositoryInterface;
 use App\Repositories\UserInterpretRepository;
 use App\Repositories\UserInterpretRepositoryInterface;
+use App\Repositories\UserRepository;
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 include __DIR__ . '/../helpers-repositories.php';
@@ -63,5 +65,6 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(TicketTypeRepositoryInterface::class, TicketTypeRepository::class);
         $this->app->singleton(TicketRepositoryInterface::class, TicketRepository::class);
         $this->app->singleton(UserInterpretRepositoryInterface::class, UserInterpretRepository::class);
+        $this->app->singleton(UserRepositoryInterface::class, UserRepository::class);
     }
 }
