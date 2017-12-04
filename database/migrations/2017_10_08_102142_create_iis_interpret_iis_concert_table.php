@@ -15,10 +15,10 @@ class CreateIisInterpretIisConcertTable extends Migration
     {
         Schema::create('iis_interpret_iis_concert', function (Blueprint $table) {
             $table->increments('iis_interpret_iis_concertid');
-//            $table->foreign('iis_interpretid')->references('iis_interpretid')->on('iis_interpret');
-//            $table->foreign('iis_concertid')->references('iis_concertid')->on('iis_concert');
-            $table->integer('iis_interpretid');
-            $table->integer('iis_concertid');
+            $table->integer('iis_interpretid')->unsigned();
+            $table->integer('iis_concertid')->unsigned();
+            $table->foreign('iis_interpretid')->references('iis_interpretid')->on('iis_interpret');
+            $table->foreign('iis_concertid')->references('iis_concertid')->on('iis_concert');
             $table->integer('order');
             $table->timestamp('date');
             $table->timestamps();

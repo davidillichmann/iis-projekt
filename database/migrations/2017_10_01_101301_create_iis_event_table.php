@@ -14,7 +14,7 @@ class CreateIisEventTable extends Migration
     public function up()
     {
         Schema::create('iis_event', function (Blueprint $table) {
-            $table->increments('iis_eventid');
+            $table->increments('iis_eventid')->unsigned();
             $table->string('name');
             $table->string('location');
             $table->string('image');

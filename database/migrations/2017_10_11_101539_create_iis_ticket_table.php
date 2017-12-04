@@ -15,10 +15,10 @@ class CreateIisTicketTable extends Migration
     {
         Schema::create('iis_ticket', function (Blueprint $table) {
             $table->increments('iis_ticketid');
-//            $table->foreign('iis_userid')->references('iis_userid')->on('iis_user');
-//            $table->foreign('iis_ticket_typeid')->references('iis_ticket_typeid')->on('iis_ticket_type');
-            $table->integer('iis_userid');
-            $table->integer('iis_ticket_typeid');
+            $table->integer('iis_userid')->unsigned();
+            $table->integer('iis_ticket_typeid')->unsigned();
+            $table->foreign('iis_userid')->references('iis_userid')->on('iis_user');
+            $table->foreign('iis_ticket_typeid')->references('iis_ticket_typeid')->on('iis_ticket_type');
             $table->string('code');
             // TODO: UNIQUE!
 //            123456789ABCDEFG01012017

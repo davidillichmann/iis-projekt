@@ -15,10 +15,10 @@ class CreateIisStageIisInterpretTable extends Migration
     {
         Schema::create('iis_stage_iis_interpret', function (Blueprint $table) {
             $table->increments('iis_stage_iis_interpretid');
-//            $table->foreign('iis_stageid')->references('iis_stageid')->on('iis_stage');
-//            $table->foreign('iis_interpretid')->references('iis_interpretid')->on('iis_interpret');
-            $table->integer('iis_stageid');
-            $table->integer('iis_interpretid');
+            $table->integer('iis_stageid')->unsigned();
+            $table->integer('iis_interpretid')->unsigned();
+            $table->foreign('iis_stageid')->references('iis_stageid')->on('iis_stage');
+            $table->foreign('iis_interpretid')->references('iis_interpretid')->on('iis_interpret');
             $table->timestamp('date');
             $table->timestamps();
             $table->index([
