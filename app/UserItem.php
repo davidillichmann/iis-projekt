@@ -45,6 +45,11 @@ class UserItem extends Authenticatable
         return ($this->getRole() == 'admin') ? true : false;
     }
 
+    public function isOrganiser()
+    {
+        return ($this->getRole() == 'organiser') ? true : false;
+    }
+
     protected $fillable = [
         'iis_userid', 'name', 'email', 'password', 'phone', 'role'
     ];

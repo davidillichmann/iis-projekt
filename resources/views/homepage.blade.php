@@ -7,9 +7,12 @@
         <hr>
 
         <h1 class="text-left">Concerts</h1>
-        <a href="{{ route('concert.add') }}">
-            <button type="button" class="btn btn-success">New concert</button>
-        </a>
+
+        @if(session('role') == "admin" || session('role') == "organiser")
+            <a href="{{ route('concert.add') }}">
+                <button type="button" class="btn btn-success">New concert</button>
+            </a>
+        @endif
         <hr>
 
         <div id="homepage__concert-carousel-indicators" class="carousel slide" data-ride="carousel">
@@ -49,9 +52,12 @@
 
         <hr>
         <h1 class="text-left">Festivals</h1>
-        <a href="{{ route('festival.add') }}">
-            <button type="button" class="btn btn-success">New festival</button>
-        </a>
+
+        @if(session('role') == "admin" || session('role') == "organiser")
+            <a href="{{ route('festival.add') }}">
+                <button type="button" class="btn btn-success">New festival</button>
+            </a>
+        @endif
         <hr>
 
 

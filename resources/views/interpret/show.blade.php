@@ -6,12 +6,15 @@
         <!-- Page Heading -->
         <h1 class="text-center"><b>Interpret:</b> {{ $interpretItem->getName() }}</h1>
         <hr>
-        <a href="{{ route('interpret.editForm', $interpretItem->getId()) }}">
-            <button type="button" class="btn btn-info">Edit interpret</button>
-        </a>
-        <a href="{{ route('interpret.delete', $interpretItem->getId()) }}">
-            <button type="button" class="btn btn-danger">Delete interpret</button>
-        </a>
+        @if(session('role') == "admin" || session('role') == "organiser")
+            <a href="{{ route('interpret.editForm', $interpretItem->getId()) }}">
+                <button type="button" class="btn btn-info">Edit interpret</button>
+            </a>
+            <a href="{{ route('interpret.delete', $interpretItem->getId()) }}">
+                <button type="button" class="btn btn-danger">Delete interpret</button>
+            </a>
+        @endif
+
         @if(Auth::guest())
             <!-- Neprihlaseny uzivatel -->
             <a href="{{ route('login') }}">
