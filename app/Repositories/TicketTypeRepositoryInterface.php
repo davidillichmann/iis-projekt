@@ -11,11 +11,11 @@ interface TicketTypeRepositoryInterface {
      * @param int $id
      * @return TicketTypeItemInterface TicketTypeItem
      */
-    public function getItemById(int $id): TicketTypeItemInterface;
+    public function getItemById(int $id);
 
     public function getAllItems();
 
-    public function insertGetId(array $data, int $eventId);
+    public function insertGetId(array $data);
 
     public function getItemsByIisEventIdSortedByPrice(int $eventId);
 

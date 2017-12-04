@@ -22,7 +22,7 @@
                         </select>
                     </div>
 
-                    <button class="btn btn-lg btn-outline-danger" type="submit">Buy</button>
+                    <button class="btn btn-lg btn-outline-danger" type="submit">Continue</button>
                 </form>
             </div>
         </div>

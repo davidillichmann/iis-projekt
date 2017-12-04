@@ -119,6 +119,7 @@ class ConcertController extends Controller {
     {
         $concertId = $data['concertId'];
         $data = $this->addTicketValidator($data);
+        $data['eventId'] = $eventId;
 
         iisTicketTypeRepository()->insertGetId($data, $eventId);
 

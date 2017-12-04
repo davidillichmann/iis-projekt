@@ -128,7 +128,7 @@ if (! function_exists('iisUserInterpretRepository')) {
 
 if (! function_exists('iisTicketRepository')) {
     /**
-     * @return \App\Repositories\TicketTypeRepositoryInterface
+     * @return \App\Repositories\TicketRepositoryInterface
      */
     function iisTicketRepository()
     {
