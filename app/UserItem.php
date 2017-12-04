@@ -57,4 +57,9 @@ class UserItem extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getTicketItemsByUserId()
+    {
+        return iisTicketRepository()->getItemsByUserId($this->getId());
+    }
 }
