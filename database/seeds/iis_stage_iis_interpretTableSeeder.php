@@ -15,10 +15,10 @@ class iis_stage_iis_interpretTableSeeder extends Seeder
 
       $faker = Faker::create();
 
-      foreach(range(1,30) as $index){
+      foreach(range(1,5) as $index){
         DB::table('iis_stage_iis_interpret')->insert([
-          'iis_interpretid' => $faker->numberBetween(1,30),
-          'iis_stageid' => $faker->numberBetween(1,5),
+          'iis_interpretid' => $faker->numberBetween(1,10),
+          'iis_stageid' => $faker->numberBetween(1,4),
           'date' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
           'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
           'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')

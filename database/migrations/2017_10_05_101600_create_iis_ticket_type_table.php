@@ -23,7 +23,6 @@ class CreateIisTicketTypeTable extends Migration
             $table->unique([
                 'iis_eventid',
                 'type',
-                'price'
             ], 'iis_ticket_type_unique');
             $table->index([
                 'iis_ticket_typeid',

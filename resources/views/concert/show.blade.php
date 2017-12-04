@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="left-column">
-                    <img src="{{ $concertItem->getImage() }}" alt="Concert Image" style="width: 500px">
+                    <img src="{{ $concertItem->getImage() }}" alt="Concert Image" style="width: 600px">
                     <br>
                     <b>Tickets</b>: <br>
                     <a href="{{ route('concert.addTicketType', [$concertItem->getIisEventid(), 'concertId' => $concertItem->getId()]) }}">
@@ -40,9 +40,6 @@
                         <a href="{{ route('concert.deleteTicketType', [$concertItem->getId(), $ticketTypeItem->getIisTicketTypeid()]) }}">
                             <button type="button" class="btn btn-outline-danger">Delete Ticket</button>
                         </a>
-                        {{--<a href="{{ route('concert.editForm', ['concertId' => $concertItem->getId(), 'ticketTypeId' => $ticketTypeItem->getIisTicketTypeid()]) }}">--}}
-                            {{--<button type="button" class="btn btn-outline-primary">Edit Ticket</button>--}}
-                        {{--</a>--}}
                         <hr>
                     @endforeach
                 </div>
@@ -56,7 +53,7 @@
                     <hr>
 
                     <b>Description</b>:
-                    <p>{{ $concertItem->getDescription() }}</p>
+                    <p style="width: 400px;">{{ $concertItem->getDescription() }}</p>
 
                     <hr>
                     <b>Interprets</b>: <br>
