@@ -36,8 +36,7 @@
             <div class="row">
 
                 <div class="left-column">
-                    <img src="{{  $interpretItem->getImage() }}" alt="Interpret Image" style="width: 500px">
-
+                    <img src="{{ $interpretItem->getImage() }}" onerror="this.src='{{ Storage::url($interpretItem->getImage()) }}';" alt="Interpret Image" style="width: 500px">
                 </div>
 
                 <div class="right-column">

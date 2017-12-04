@@ -70,6 +70,7 @@
                             <span class="help-block"><strong>{{ $errors->first('end_date') }}</strong></span>
                         @endif
                     </div>
+                    <p style="color: orangered;">All fields are required</p>
 
                     <button class="btn btn-lg btn-outline-danger" type="submit">Edit festival</button>
                 </form>

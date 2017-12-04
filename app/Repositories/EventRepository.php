@@ -59,6 +59,7 @@ class EventRepository implements EventRepositoryInterface {
 
     public function updateById(array $data, $eventId)
     {
+        dd($data['image']);
         if(isset($data['image'])) {
             return DB::table('iis_event')
                 ->where('iis_eventid', '=', $eventId)
