@@ -71,4 +71,9 @@ class TicketTypeItem  implements TicketTypeItemInterface {
     {
         return $this->updated_at;
     }
+
+//    public function getEventItem()
+//    {
+//        return iisEventRepository()->getItemById($this->getIisEventid());
+//    }
 }

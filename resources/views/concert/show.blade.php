@@ -10,6 +10,17 @@
         <a href="{{ route('concert.delete', ['concertid' => $concertItem->getId(), 'eventid' => $concertItem->getIisEventid()]) }}">
             <button type="button" class="btn btn-danger">Delete concert</button>
         </a>
+        @if(Auth::guest())
+            <!-- Neprihlaseny uzivatel -->
+                <a href="{{ route('login') }}">
+                    <button type="button" class="btn btn-outline-success">Buy Tickets!</button>
+                </a>
+        @else
+        <!-- Prihlaseny uzivatel -->
+            <a href="{{ route('ticket.add', $concertItem->getIisEventid()) }}">
+                <button type="button" class="btn btn-outline-success">Buy Tickets!</button>
+            </a>
+        @endif
         <hr>
 
         {{-- Page content--}}
@@ -26,7 +37,7 @@
                     @foreach($concertItem->getTickets() as $ticketTypeItem)
                         <b>Type</b>: {{ $ticketTypeItem->getType() }} <br>
                         <b>Price</b>: {{ $ticketTypeItem->getPrice() }} <br>
-                        <a href="{{ route('concert.deleteTicketType', ['concertId' => $concertItem->getId(), 'ticketTypeId' => $ticketTypeItem->getIisTicketTypeid()]) }}">
+                        <a href="{{ route('concert.deleteTicketType', [$concertItem->getId(), $ticketTypeItem->getIisTicketTypeid()]) }}">
                             <button type="button" class="btn btn-outline-danger">Delete Ticket</button>
                         </a>
                         {{--<a href="{{ route('concert.editForm', ['concertId' => $concertItem->getId(), 'ticketTypeId' => $ticketTypeItem->getIisTicketTypeid()]) }}">--}}
@@ -53,7 +64,6 @@
                         <button type="button" class="btn btn-success">Add Interpret to Concert</button>
                     </a> <br>
                     @foreach($concertItem->getInterpretAtConcertItems() as $interpretAtConcertItem)
-                        <b>Interpret Name</b>:
                         <a href="{{ route('interpret.show', $interpretAtConcertItem->getId()) }}">
                             {{ $interpretAtConcertItem->getName() }}</a> <br>
                         <b>Members</b>: {{ $interpretAtConcertItem->getMembers() }} <br>

@@ -6,9 +6,11 @@ use Illuminate\Support\Facades\DB;
 
 interface TicketRepositoryInterface {
 
+
+
 //    public function getItemsByIisConcertIdSortedByOrder(int $iisConcertId);
 //
-//    public function insertGetId(array $data);
+    public function insert(int $iis_ticket_typeid, int $iis_userid, $code);
 //
 //    public function deleteById(int $concertInterpretId);
 //

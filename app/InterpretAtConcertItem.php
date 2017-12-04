@@ -12,6 +12,9 @@ class InterpretAtConcertItem extends InterpretItem {
      * @var int
      */
     protected $iis_interpretid_iis_concertid;
+
+    protected $iis_concertid;
+
     /**
      * @var int
      */
@@ -20,6 +23,8 @@ class InterpretAtConcertItem extends InterpretItem {
      * @var string
      */
     protected $date;
+
+
 
     /**
      * InterpretItem constructor.
@@ -31,6 +36,7 @@ class InterpretAtConcertItem extends InterpretItem {
         {
             parent::__construct($row);
             $this->iis_interpretid_iis_concertid = $row['iis_interpret_iis_concertid'];
+            $this->iis_concertid = $row['iis_concertid'];
             $this->order = $row['order'];
             $this->date = $row['date'];
         }
@@ -60,4 +66,8 @@ class InterpretAtConcertItem extends InterpretItem {
         return $this->date;
     }
 
+    public function getIisConcertid () : int
+    {
+        return $this->iis_concertid;
+    }
 }

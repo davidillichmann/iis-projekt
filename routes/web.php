@@ -35,6 +35,13 @@ Route::get('/festival/{festivalid}/stage/{stageid}/delete', 'StageController@del
 Route::get('/festival/{festivalid}/stage/{stageid}/editForm', 'StageController@editForm')->name('stage.editForm');
 Route::post('/festival/{festivalid}/stage/{stageid}/edit', 'StageController@edit')->name('stage.edit');
 
+//ticket
+Route::get('/event/{concertId}/buyTicket', 'TicketController@add')->name('ticket.add');
+Route::post('/event/{concertId}/buyTicket', 'TicketController@sent')->name('ticket.sent');
+
+//user
+Route::get('/profile/{userId}', 'UserController@index')->name('user.index');
+
 //search
 Route::get('/search', 'SearchController@index')->name('search.index');
 

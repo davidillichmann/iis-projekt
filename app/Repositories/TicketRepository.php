@@ -53,17 +53,16 @@ class TicketRepository extends TicketTypeRepository implements TicketRepositoryI
 //            ->delete();
 //    }
 //
-//    public function insertGetId(array $data)
-//    {
-//        return DB::table('iis_interpret_iis_concert')->insertGetId([
-//            'iis_interpretid' => $data['interpretId'],
-//            'iis_concertid' => $data['concertId'],
-//            'order' => $data['order'],
-//            'date' => $data['date'],
-//            'created_at' => date("Y-m-d H:i:s"),
-//            'updated_at' => date("Y-m-d H:i:s"),
-//        ]);
-//    }
+    public function insert(int $iis_ticket_typeid, int $iis_userid, $code)
+    {
+        return DB::table('iis_ticket')->insertGetId([
+            'iis_userid' => $iis_userid,
+            'iis_ticket_typeid' => $iis_ticket_typeid,
+            'code' => $code,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+    }
 
 //    public function getItemById($id)
 //    {

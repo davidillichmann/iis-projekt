@@ -60,6 +60,13 @@ class ConcertRepository implements ConcertRepositoryInterface {
             ->first());
     }
 
+    public function getItemByEventId(int $eventid): ConcertItemInterface
+    {
+        return $this->_toItem($this->getQueryBuilder()
+            ->where('iis_eventid', $eventid)
+            ->first());
+    }
+
     public function insertGetId(array $data, int $eventId)
     {
         return DB::table('iis_concert')->insertGetId([

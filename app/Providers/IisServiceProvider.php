@@ -16,6 +16,8 @@ use App\Repositories\InterpretRepository;
 use App\Repositories\InterpretRepositoryInterface;
 use App\Repositories\StageRepository;
 use App\Repositories\StageRepositoryInterface;
+use App\Repositories\TicketRepository;
+use App\Repositories\TicketRepositoryInterface;
 use App\Repositories\TicketTypeRepository;
 use App\Repositories\TicketTypeRepositoryInterface;
 use App\Repositories\UserInterpretRepository;
@@ -59,6 +61,7 @@ class IisServiceProvider extends ServiceProvider
         $this->app->singleton(StageRepositoryInterface::class, StageRepository::class);
         $this->app->singleton(InterpretAtStageRepositoryInterface::class, InterpretAtStageRepository::class);
         $this->app->singleton(TicketTypeRepositoryInterface::class, TicketTypeRepository::class);
+        $this->app->singleton(TicketRepositoryInterface::class, TicketRepository::class);
         $this->app->singleton(UserInterpretRepositoryInterface::class, UserInterpretRepository::class);
     }
 }

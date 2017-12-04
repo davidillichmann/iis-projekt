@@ -161,4 +161,14 @@ class InterpretItem implements InterpretItemInterface {
             : false;
     }
 
+//    public function getConcertItemsByInterpretId()
+//    {
+//        return iisInterpretAtConcertRepository()->getConcertItemsByInterpretId($this->getId());
+//    }
+//
+//    public function getInterpretAtStageItem()
+//    {
+////      TODO
+//    }
+
 }

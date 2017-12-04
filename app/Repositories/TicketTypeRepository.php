@@ -60,6 +60,20 @@ class TicketTypeRepository implements TicketTypeRepositoryInterface {
             ->first());
     }
 
+    public function getItemsById(int $eventId)
+    {
+        $objects = $this->getQueryBuilder()
+            ->select(DB::raw(implode(',', array_merge($this->columns))))
+            ->where('iis_eventid', $eventId)
+            ->get();
+        $arrays = [];
+        foreach($objects as $object) {
+            array_push($arrays, (array) $object);
+        }
+
+        return $this->_toItems($arrays);
+    }
+
     public function insertGetId(array $data, int $eventId)
     {
         return DB::table('iis_ticket_type')->insertGetId([

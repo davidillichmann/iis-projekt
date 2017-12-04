@@ -23,5 +23,7 @@ interface TicketTypeRepositoryInterface {
 
     public function updateById (array $data, $ticketTypeId);
 
+    public function getItemsById(int $eventId);
+
 //    public function save($eventid, $capacity, $date);
 }

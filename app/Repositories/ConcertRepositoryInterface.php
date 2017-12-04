@@ -23,5 +23,7 @@ interface ConcertRepositoryInterface {
 
     public function deleteById(int $concertId);
 
+    public function getItemByEventId(int $eventId);
+
 //    public function save($eventid, $capacity, $date);
 }

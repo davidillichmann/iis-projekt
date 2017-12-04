@@ -126,3 +126,17 @@ if (! function_exists('iisUserInterpretRepository')) {
     }
 }
 
+if (! function_exists('iisTicketRepository')) {
+    /**
+     * @return \App\Repositories\TicketTypeRepositoryInterface
+     */
+    function iisTicketRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\TicketRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}
+

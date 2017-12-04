@@ -40,6 +40,20 @@ class InterpretAtConcertRepository extends InterpretRepository implements Interp
         return $this->_toItems($arrays);
     }
 
+//    public function getConcertItemsByInterpretId(int $interpretId)
+//    {
+//        $objects = $this->getQueryBuilder()
+//            ->select(DB::raw(implode(',', array_merge($this->columns, $this->columnsInterpretAtConcert))))
+//            ->where('iis_interpretid', $interpretId)
+//            ->join('iis_concert', 'iis_interpret_iis_concert.iis_concertid', '=', 'iis_concert.iis_concertid')
+//            ->get();
+//        $arrays = [];
+//        foreach($objects as $object) {
+//            array_push($arrays, (array) $object);
+//        }
+//        return $this->_toItems($arrays);
+//    }
+
     public function deleteById(int $concertInterpretId)
     {
         $this->getQueryBuilder()->
