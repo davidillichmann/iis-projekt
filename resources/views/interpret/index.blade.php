@@ -6,10 +6,12 @@
         <!-- Page Heading -->
         <h1 class="text-center">Interprets</h1>
         <hr>
-        <a href="{{ route('interpret.add') }}">
-            <button type="button" class="btn btn-success">New interpret</button>
-        </a>
-        <hr>
+        @if(session('role') == "admin" || session('role') == "organiser")
+            <a href="{{ route('interpret.add') }}">
+                <button type="button" class="btn btn-success">New interpret</button>
+            </a>
+            <hr>
+        @endif
 
         {{-- Page content--}}
         <div class="container">
@@ -19,8 +21,8 @@
                         <div class="card">
                             <img class="card-img-top img-fluid" src="{{ $interpretItem->getImage() }}" onerror="this.src='{{ Storage::url($interpretItem->getImage()) }}';" alt="{{ $interpretItem->getName() }}">
                             <div class="card-body">
-                                <h4 class="card-title">
-                                    <a href="{{ route('interpret.show', $interpretItem->getId()) }}">Interpret {{ $interpretItem->getId() }}</a>
+                                <h4 class="card-title" align="center">
+                                    <a href="{{ route('interpret.show', $interpretItem->getId()) }}">{{ $interpretItem->getName() }}</a>
                                 </h4>
                                 <p class="card-text">
 
