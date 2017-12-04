@@ -15,10 +15,10 @@ class iis_stageTableSeeder extends Seeder
 
       $faker = Faker::create();
       $i = 1;
-      foreach(range(1,5) as $index){
+      foreach(range(1,4) as $index){
           DB::table('iis_stage')->insert([
               'name' => $faker->word(),
-              'iis_festival' => $i++,
+              'iis_festivalid' => $i++,
               'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
               'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')
           ]);

@@ -22,54 +22,42 @@ class TicketRepository extends TicketTypeRepository implements TicketRepositoryI
             ->select(DB::raw(implode(',', $this->columnsTicket)));
     }
 
-//    public function getItemsByIisConcertIdSortedByOrder(int $iisConcertId)
-//    {
-//        $objects = $this->getQueryBuilder()
-//            ->select(DB::raw(implode(',', array_merge($this->columns, $this->$columnsTicket))))
-//            ->where('iis_concertid', $iisConcertId)
-//            ->join('iis_interpret', 'iis_interpret_iis_concert.iis_interpretid', '=', 'iis_interpret.iis_interpretid')
-//            ->get();
-//        $arrays = [];
-//        foreach($objects as $object) {
-//            array_push($arrays, (array) $object);
-//        }
-//        usort($arrays, function ($a, $b) {
-//            return $a['order'] - $b['order'];
-//        });
-//        return $this->_toItems($arrays);
-//    }
-
-//    public function deleteById(int $concertInterpretId)
-//    {
-//        $this->getQueryBuilder()->
-//        where('iis_interpret_iis_concertid', '=', $concertInterpretId)
-//            ->delete();
-//    }
-//
-//    public function deleteByConcertId(int $concertId)
-//    {
-//        $this->getQueryBuilder()->
-//        where('iis_concertid', '=', $concertId)
-//            ->delete();
-//    }
-//
-    public function insert(int $iis_ticket_typeid, int $iis_userid, $code)
+    public function insertGetId(array $data)
     {
         return DB::table('iis_ticket')->insertGetId([
-            'iis_userid' => $iis_userid,
-            'iis_ticket_typeid' => $iis_ticket_typeid,
-            'code' => $code,
+            'iis_userid' => $data['userid'],
+            'iis_ticket_typeid' => $data['ticketTypeId'],
+            'code' => $data['code'],
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
     }
 
-//    public function getItemById($id)
+//    public function getItemById(int $id)
 //    {
 //        return $this->_toItem($this->getQueryBuilder()
-//            ->where('iis_interpretid', $id)
+//            ->where('iis_ticketid', $id)
 //            ->first());
 //    }
+
+    public function getItemById(int $id)
+    {
+
+        $object = $this->getQueryBuilder()
+            ->select(DB::raw(implode(',', array_merge($this->columns, $this->columnsTicket))))
+            ->where('iis_ticketid', $id)
+            ->join('iis_ticket_type', 'iis_ticket.iis_ticket_typeid', '=', 'iis_ticket_type.iis_ticket_typeid')
+            ->first();
+
+        return $this->_toItem($object);
+    }
+
+    public function checkExistingTicketCode($code)
+    {
+        return $this->getQueryBuilder()
+            ->where('code', $code)
+            ->first() ? true : false;
+    }
 
     private function _toItem($row)
     {
@@ -78,12 +66,12 @@ class TicketRepository extends TicketTypeRepository implements TicketRepositoryI
         }
     }
 
-    private function _toItems($rows)
-    {
-        $items = [];
-        foreach ($rows as $row) {
-            $items[] = $this->_toItem((array) $row);
-        }
-        return $items;
-    }
+//    private function _toItems($rows)
+//    {
+//        $items = [];
+//        foreach ($rows as $row) {
+//            $items[] = $this->_toItem((array) $row);
+//        }
+//        return $items;
+//    }
 }

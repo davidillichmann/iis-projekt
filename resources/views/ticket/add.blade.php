@@ -4,13 +4,13 @@
     <div class="container">
 
         <!-- Page Heading -->
-        <h1 class="text-left">Buy ticket for {{ $concertItem->getName() }}</h1>
+        <h1 class="text-left">Buy ticket</h1>
         <hr>
 
         {{-- Page content--}}
         <div class="container">
             <div class="row">
-                <form method="POST" action="{{ route('ticket.sent', $concertItem->getId()) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('ticket.sent') }}" enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -22,7 +22,7 @@
                         </select>
                     </div>
 
-                    <button class="btn btn-lg btn-outline-danger" type="submit">Buy</button>
+                    <button class="btn btn-lg btn-outline-danger" type="submit">Continue</button>
                 </form>
             </div>
         </div>

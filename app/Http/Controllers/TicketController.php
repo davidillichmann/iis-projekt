@@ -10,46 +10,57 @@ class TicketController extends Controller {
 
     public function add(int $eventId)
     {
-        $ticketTypeItems = iisTicketTypeRepository()->getItemsById($eventId);
-        $concertItem = iisConcertRepository()->getItemByEventId($eventId);
 
-        return view('ticket.add', compact('ticketTypeItems', 'concertItem'));
+        $ticketTypeItems = iisTicketTypeRepository()->getItemsById($eventId);
+//        $concertItem = iisConcertRepository()->getItemByEventId($eventId);
+
+        return view('ticket.add', compact('ticketTypeItems'));
     }
 
-    public function sent(Request $data, int $concertId)
+    public function sent(Request $data)
     {
         $data = $this->validator($data);
-        $userId = auth()->user()->iis_userid;
+
+        $data['userid'] = auth()->user()->iis_userid;
 
         $code = "";
-        // 9 cislic
-        for($i = 0; $i < 9; $i++)
-        {
-            $code .= rand(1, 9);
-        }
+        $data['code'] = $this->generateCode($code);
 
-        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $max = strlen($characters) - 1;
+        $ticketId = iisTicketRepository()->insertGetId($data);
 
-        // 7 pismen
-        for($i = 0; $i < 7; $i++)
-        {
-            $code .= $characters[mt_rand(0, $max)];
-        }
+        $ticketItem = iisTicketRepository()->getItemById($ticketId);
 
-        //datum
-        $code .= date('dmY');
-
-        iisTicketRepository()->insert($data['ticketTypeId'], $userId, $code);
-
-        return redirect()->route('concert.show', $concertId);
+        return view('ticket.payment', compact('ticketItem'));
     }
-
 
     protected function validator(Request $data)
     {
         return $data->validate([
             'ticketTypeId' => 'required|integer',
         ]);
+    }
+
+    protected function generateCode($code)
+    {
+        // 9 cislic
+        for($i = 0; $i < 9; $i++)
+        {
+            $code .= rand(1, 9);
+        }
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $max = strlen($characters) - 1;
+        // 7 pismen
+        for($i = 0; $i < 7; $i++)
+        {
+            $code .= $characters[mt_rand(0, $max)];
+        }
+        //datum
+        $code .= date('dmY');
+
+        if (iisTicketRepository()->checkExistingTicketCode($code)){
+            $code = $this->generateCode($code);
+        }
+
+        return $code;
     }
 }
