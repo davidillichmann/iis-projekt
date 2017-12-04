@@ -15,7 +15,7 @@ class iis_ticket_typeTableSeeder extends Seeder
 
       $faker = Faker::create();
 
-      foreach(range(1,300) as $index){
+      foreach(range(1,200) as $index){
         DB::table('iis_ticket_type')->insert([
           'iis_eventid' => $faker->numberBetween(1,15),
           'type' => $faker->randomElement($array = array ('adult', 'student', 'child')),

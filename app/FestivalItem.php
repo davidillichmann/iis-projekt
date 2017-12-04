@@ -97,4 +97,9 @@ class FestivalItem extends EventItem implements FestivalItemInterface {
     {
         return $this->iis_festivalid;
     }
+
+    public function getTickets()
+    {
+        return iisTicketTypeRepository()->getItemsByIisEventIdSortedByPrice($this->iis_eventid);
+    }
 }

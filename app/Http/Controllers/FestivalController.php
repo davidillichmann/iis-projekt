@@ -84,4 +84,36 @@ class FestivalController extends Controller
             'end_date' => 'required|date',
         ]);
     }
+
+    public function addTicketType(int $eventId, Request $data)
+    {
+        $festivalId = $data['festivalId'];
+        return view('festival.addTicketType', compact('eventId', 'festivalId'));
+    }
+
+    public function sentTicketType(Request $data, int $eventId)
+    {
+
+        $festivalId = $data['festivalId'];
+        $data = $this->addTicketValidator($data);
+        $data['eventId'] = $eventId;
+
+        iisTicketTypeRepository()->insertGetId($data);
+
+        return redirect(route('festival.show', $festivalId));
+    }
+
+    public function deleteTicketType(int $festivalId, int $ticketTypeId)
+    {
+        iisTicketTypeRepository()->deleteItemById($ticketTypeId);
+        return redirect(route('festival.show', $festivalId));
+    }
+
+    protected function addTicketValidator(Request $data)
+    {
+        return $data->validate([
+            'type' => 'required|string|max:255',
+            'price' => 'required|integer|min:1',
+        ]);
+    }
 }

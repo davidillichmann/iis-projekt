@@ -10,10 +10,11 @@ class TicketController extends Controller {
 
     public function add(int $eventId)
     {
-        $ticketTypeItems = iisTicketTypeRepository()->getItemsById($eventId);
-        $concertItem = iisConcertRepository()->getItemByEventId($eventId);
 
-        return view('ticket.add', compact('ticketTypeItems', 'concertItem'));
+        $ticketTypeItems = iisTicketTypeRepository()->getItemsById($eventId);
+//        $concertItem = iisConcertRepository()->getItemByEventId($eventId);
+
+        return view('ticket.add', compact('ticketTypeItems'));
     }
 
     public function sent(Request $data)

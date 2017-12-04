@@ -24,6 +24,9 @@ Route::get('/festival/{id}', 'FestivalController@show')->name('festival.show');
 Route::get('/festival/{id}/editForm', 'FestivalController@editForm')->name('festival.editForm');
 Route::post('/festival/{id}/edit', 'FestivalController@edit')->name('festival.edit');
 Route::get('/festival/{festivalid}/delete/{eventid}', 'FestivalController@delete')->name('festival.delete');
+Route::get('/festival/{id}/addTicketType', 'FestivalController@addTicketType')->name('festival.addTicketType');
+Route::post('/festival/{id}/sentTicketType', 'FestivalController@sentTicketType')->name('festival.sentTicketType');
+Route::get('/festival/{festivalid}/deleteTicketType/{tickettypeid}', 'FestivalController@deleteTicketType')->name('festival.deleteTicketType');
 
 //stage
 Route::get('/festival/{id}/stage/add', 'StageController@add')->name('stage.add');
@@ -37,8 +40,8 @@ Route::post('/festival/{festivalid}/stage/{stageid}/edit', 'StageController@edit
 
 //ticket
 Route::get('/event/{eventid}/orderTicket', 'TicketController@add')->name('ticket.add');
-Route::post('/event/{eventid}/orderTicket', 'TicketController@sent')->name('ticket.sent');
-Route::get('/event/{eventid}/pay', 'TicketController@payment')->name('ticket.payment');
+Route::post('/event/orderTicket', 'TicketController@sent')->name('ticket.sent');
+Route::get('/event/pay', 'TicketController@payment')->name('ticket.payment');
 
 //user
 Route::get('/profile/{userId}', 'UserController@index')->name('user.index');
