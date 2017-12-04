@@ -19,21 +19,35 @@ class iis_userTableSeeder extends Seeder
           'name' => 'Admin',
           'email' => 'admin@admin.com',
           'password' => bcrypt('secret'),
+          'role' => 'admin',
           'phone' => $faker->randomNumber(9, false),
           'created_at' => date("Y-m-d H:i:s"), // '1979-06-09'
           'updated_at' => date("Y-m-d H:i:s") // '1979-06-09'
       ]);
 
-      foreach(range(1,20) as $index){
+      foreach(range(1,10) as $index){
         DB::table('iis_user')->insert([
           'name' => $faker->name($gender = null|'male'|'female'),
           'email' => $faker->email(),
           'password' => bcrypt('secret'),
+          'role' => 'user',
           'phone' => $faker->randomNumber(9, false),
           'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
           'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')
         ]);
       }
+
+        foreach(range(1,10) as $index){
+            DB::table('iis_user')->insert([
+                'name' => $faker->name($gender = null|'male'|'female'),
+                'email' => $faker->email(),
+                'password' => bcrypt('secret'),
+                'role' => 'organiser',
+                'phone' => $faker->randomNumber(9, false),
+                'created_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now'),
+                'updated_at' => $faker->date($format = 'Y-m-d H:i:s', $max = 'now')
+            ]);
+        }
 
     }
 }
