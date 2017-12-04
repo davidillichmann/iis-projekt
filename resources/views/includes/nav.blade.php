@@ -40,7 +40,7 @@
                     <a class="nav-link " href="{{ route('logout') }}">Logout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Profile</a>
+                    <a class="nav-link " href="{{ route('user.show', auth()->id()) }}">Profile</a>
                 </li>
             @endif
         </ul>

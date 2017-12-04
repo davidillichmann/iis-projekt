@@ -140,3 +140,17 @@ if (! function_exists('iisTicketRepository')) {
     }
 }
 
+if (! function_exists('iisUserRepository')) {
+    /**
+     * @return \App\Repositories\UserRepositoryInterface
+     */
+    function iisUserRepository()
+    {
+        static $repository = null;
+        if (null === $repository) {
+            $repository = app(\App\Repositories\UserRepositoryInterface::class);
+        }
+        return $repository;
+    }
+}
+

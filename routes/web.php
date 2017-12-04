@@ -44,7 +44,13 @@ Route::post('/event/orderTicket', 'TicketController@sent')->name('ticket.sent');
 Route::get('/event/pay', 'TicketController@payment')->name('ticket.payment');
 
 //user
-Route::get('/profile/{userId}', 'UserController@index')->name('user.index');
+Route::get('/profile/{userId}', 'UserController@show')->name('user.show');
+Route::get('/profile/{userId}/editForm', 'UserController@editForm')->name('user.editForm');
+Route::post('/profile/{userId}/edit', 'UserController@edit')->name('user.edit');
+Route::get('/profile/{userId}/toUser', 'UserController@changeToUser')->name('user.changeToUser');
+Route::get('/profile/{userId}/toOragniser', 'UserController@changeToOrganiser')->name('user.changeToOrganiser');
+Route::get('/profile/{userId}/delete', 'UserController@delete')->name('user.delete');
+Route::get('/profile/{userId}/deactivate', 'UserController@deactivate')->name('user.deactivate');
 
 //search
 Route::get('/search', 'SearchController@index')->name('search.index');

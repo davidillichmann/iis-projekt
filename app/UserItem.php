@@ -17,8 +17,36 @@ class UserItem extends Authenticatable
      *
      * @var array
      */
+
+    public function getId()
+    {
+        return $this->attributes['iis_userid'];
+    }
+
+    public function getName()
+    {
+        return $this->attributes['name'];
+    }
+    public function getEmail()
+    {
+        return $this->attributes['email'];
+    }
+    public function getPhone()
+    {
+        return $this->attributes['phone'];
+    }
+    public function getRole()
+    {
+        return $this->attributes['role'];
+    }
+
+    public function isAdmin()
+    {
+        return ($this->getRole() == 'admin') ? true : false;
+    }
+
     protected $fillable = [
-        'name', 'email', 'password', 'phone',
+        'iis_userid', 'name', 'email', 'password', 'phone', 'role'
     ];
 
     /**
