@@ -57,8 +57,8 @@
 
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
             </div>
-
-            <button class="btn btn-lg btn btn-outline-secondary" type="submit">Register</button>
+            <p style="color: orangered;">All fields are required</p>
+            <button class="btn btn-lg btn btn-outline-success" type="submit">Register</button>
         </form>
     </div> <!-- /container -->
 

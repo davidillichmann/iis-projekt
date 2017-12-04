@@ -17,13 +17,12 @@
                 @foreach($interpretItems as $interpretItem)
                     <div class="col-lg-4">
                         <div class="card">
-                            <img class="card-img-top img-fluid" src="{{ $interpretItem->getImage() }}" alt="{{ $interpretItem->getName() }}">
+                            <img class="card-img-top img-fluid" src="{{ $interpretItem->getImage() }}" onerror="this.src='{{ Storage::url($interpretItem->getImage()) }}';" alt="{{ $interpretItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="{{ route('interpret.show', $interpretItem->getId()) }}">Interpret {{ $interpretItem->getId() }}</a>
                                 </h4>
                                 <p class="card-text">
-                                    {{--Name = {{ $concertItem->getName() }} <br>--}}
 
                                     <b>Description</b>: {{ $interpretItem->getDescription() }} <br>
                                     <b>Members</b>: {{ $interpretItem->getMembers() }} <br>

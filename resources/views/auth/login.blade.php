@@ -27,7 +27,7 @@
                         </span>
                 @endif
             </div>
-
+            <p style="color: orangered;">All fields are required</p>
             <button class="btn btn-lg btn btn-outline-success" id="signButton" type="submit" style="color: greenyellow;">Sign in</button>
         </form>
     </div> <!-- /container -->

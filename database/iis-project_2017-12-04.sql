@@ -405,12 +405,12 @@ DROP TABLE IF EXISTS `iis_ticket_type`;
 CREATE TABLE `iis_ticket_type` (
   `iis_ticket_typeid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `iis_eventid` int(10) unsigned NOT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`iis_ticket_typeid`),
-  UNIQUE KEY `iis_ticket_type_unique` (`iis_eventid`,`type`),
+  UNIQUE KEY `un1` (`iis_eventid`,`type`),
   KEY `iis_ticket_type_index` (`iis_ticket_typeid`,`iis_eventid`),
   CONSTRAINT `iis_ticket_type_iis_eventid_foreign` FOREIGN KEY (`iis_eventid`) REFERENCES `iis_event` (`iis_eventid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -448,7 +448,7 @@ DROP TABLE IF EXISTS `iis_user`;
 CREATE TABLE `iis_user` (
   `iis_userid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` int(11) NOT NULL,
   `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -456,7 +456,7 @@ CREATE TABLE `iis_user` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`iis_userid`),
-  UNIQUE KEY `iis_user_email_unique` (`email`),
+  UNIQUE (`email`),
   KEY `iis_user_iis_userid_index` (`iis_userid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

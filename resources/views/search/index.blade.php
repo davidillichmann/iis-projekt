@@ -45,7 +45,7 @@
                     @foreach($concertItems as $concertItem)
                     <div class="col-lg-4">
                         <div class="card" style="margin-bottom: 30px">
-                            <img class="card-img-top img-fluid" src="{{ $concertItem->getImage() }}" alt="{{ $concertItem->getName() }}">
+                            <img class="card-img-top img-fluid" src="{{ $concertItem->getImage() }}" onerror="this.src='{{ Storage::url($concertItem->getImage()) }}';" alt="{{ $concertItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="{{ route('concert.show', $concertItem->getId()) }}">{{ $concertItem->getName() }}</a>
@@ -77,7 +77,7 @@
                 @foreach($festivalItems as $festivalItem)
                     <div class="col-lg-3">
                         <div class="card" style="margin-bottom: 30px">
-                            <img class="card-img-top img-fluid" src="{{  Storage::url($festivalItem->getImage()) }}" onerror="this.src='{{ $festivalItem->getImage() }}';" alt="{{ $festivalItem->getName() }}">
+                            <img class="card-img-top img-fluid" src="{{ $festivalItem->getImage() }}" onerror="this.src='{{ Storage::url($festivalItem->getImage()) }}';" alt="{{ $festivalItem->getName() }}">
                             <div class="card-body">
                                 <h4 class="card-title">
                                     <a href="{{ route('festival.show', $festivalItem->getId()) }}">{{ $festivalItem->getName() }}</a>

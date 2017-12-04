@@ -27,7 +27,7 @@
         <div class="container">
             <div class="row">
                 <div class="left-column">
-                    <img src="{{ $concertItem->getImage() }}" alt="Concert Image" style="width: 600px">
+                    <img src="{{ $concertItem->getImage() }}" onerror="this.src='{{ Storage::url($concertItem->getImage()) }}';" alt="Concert Image" style="width: 500px">
                     <br>
                     <b>Tickets</b>: <br>
                     <a href="{{ route('concert.addTicketType', [$concertItem->getIisEventid(), 'concertId' => $concertItem->getId()]) }}">
