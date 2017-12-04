@@ -93,4 +93,15 @@ class TicketTypeRepository implements TicketTypeRepositoryInterface {
         where('iis_ticket_typeid', '=', $ticketTypeId)
             ->delete();
     }
+
+    public function updateById(array $data, $ticketTypeId)
+    {
+        return DB::table('iis_ticket_type')
+            ->where('iis_ticket_typeid', '=', $ticketTypeId)
+            ->update([
+                'price' => $data['price'],
+                'type' => $data['type'],
+                'updated_at' => date("Y-m-d H:i:s"),
+            ]);
+    }
 }

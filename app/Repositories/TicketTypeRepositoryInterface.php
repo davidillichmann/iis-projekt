@@ -21,5 +21,7 @@ interface TicketTypeRepositoryInterface {
 
     public function deleteItemById(int $ticketTypeId);
 
+    public function updateById (array $data, $ticketTypeId);
+
 //    public function save($eventid, $capacity, $date);
 }

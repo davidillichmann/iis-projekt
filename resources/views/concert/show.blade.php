@@ -21,13 +21,17 @@
                     <b>Tickets</b>: <br>
                     <a href="{{ route('concert.addTicketType', [$concertItem->getIisEventid(), 'concertId' => $concertItem->getId()]) }}">
                         <button type="button" class="btn btn-success">Add New Ticket</button>
-                    </a> <br>
+                    </a><br><hr>
+
                     @foreach($concertItem->getTickets() as $ticketTypeItem)
                         <b>Type</b>: {{ $ticketTypeItem->getType() }} <br>
                         <b>Price</b>: {{ $ticketTypeItem->getPrice() }} <br>
                         <a href="{{ route('concert.deleteTicketType', ['concertId' => $concertItem->getId(), 'ticketTypeId' => $ticketTypeItem->getIisTicketTypeid()]) }}">
                             <button type="button" class="btn btn-outline-danger">Delete Ticket</button>
                         </a>
+                        {{--<a href="{{ route('concert.editForm', ['concertId' => $concertItem->getId(), 'ticketTypeId' => $ticketTypeItem->getIisTicketTypeid()]) }}">--}}
+                            {{--<button type="button" class="btn btn-outline-primary">Edit Ticket</button>--}}
+                        {{--</a>--}}
                         <hr>
                     @endforeach
                 </div>
