@@ -22,6 +22,5 @@ class DatabaseSeeder extends Seeder
         $this->call(iis_user_iis_interpretTableSeeder::class);
         $this->call(iis_ticket_typeTableSeeder::class);
         $this->call(iis_ticketTableSeeder::class);
-
     }
 }

@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-
     <div class="login_background_image">
         <form class="form-signin" method="POST" action="/login">
             {{ csrf_field() }}

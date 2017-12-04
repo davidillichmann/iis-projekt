@@ -40,6 +40,22 @@ class TicketRepository extends TicketTypeRepository implements TicketRepositoryI
 //            ->first());
 //    }
 
+    public function getItemsByUserId (int $userId)
+    {
+        $objects = $this->getQueryBuilder()
+            ->select(DB::raw(implode(',', array_merge($this->columns, $this->columnsTicket))))
+            ->where('iis_userid', $userId)
+            ->join('iis_ticket_type', 'iis_ticket.iis_ticket_typeid', '=', 'iis_ticket_type.iis_ticket_typeid')
+            ->get();
+        $arrays = [];
+
+        foreach($objects as $object) {
+            array_push($arrays, (array) $object);
+        }
+        return $this->_toItems($arrays);
+    }
+
+
     public function getItemById(int $id)
     {
 
@@ -66,12 +82,12 @@ class TicketRepository extends TicketTypeRepository implements TicketRepositoryI
         }
     }
 
-//    private function _toItems($rows)
-//    {
-//        $items = [];
-//        foreach ($rows as $row) {
-//            $items[] = $this->_toItem((array) $row);
-//        }
-//        return $items;
-//    }
+    private function _toItems($rows)
+    {
+        $items = [];
+        foreach ($rows as $row) {
+            $items[] = $this->_toItem((array) $row);
+        }
+        return $items;
+    }
 }

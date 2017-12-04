@@ -61,6 +61,26 @@
                     @endforeach
                 </table>
         <hr>
+        @else
+            <table class="table thead-inverse">
+                <tr>
+                    <th>Event</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Code</th>
+                    <th>Purchased</th>
+                </tr>
+                @foreach($loggedUserItem->getTicketItemsByUserId() as $ticketItem)
+                    <tr>
+                        <td>{{ $ticketItem->getEventItem()->getName() }}</td>
+                        <td>{{ $ticketItem->getType() }}</td>
+                        <td>{{ $ticketItem->getPrice() }}</td>
+                        <td>{{ $ticketItem->getCode() }}</td>
+                        <td>{{ $ticketItem->getCreatedAt() }}</td>
+                    </tr>
+                @endforeach
+            </table>
+            <hr>
         @endif
 
 

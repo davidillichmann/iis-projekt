@@ -1,5 +1,5 @@
 <div class="container">
-    <nav class="navbar navbar-light navbar-toggleable-md">
+    <nav class="navbar navbar-inverted navbar-toggleable-md">
 
         {{--<ul class="navbar-nav mr-auto mt-2 mt-md-0">--}}
             {{--Search--}}
