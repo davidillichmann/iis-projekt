@@ -10274,10 +10274,6 @@ a.text-gray-dark:hover {
   background-color: #b2b6b4;
 }
 
-.form-signin input[id="phone"] {
-  background-color: #b2b6b4;
-}
-
 .form-signin button[id="signButton"] {
   color: #a5a5a5;
   border-color: #a5a5a5;
