@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="login_background_image">
-        <form class="form-signin" method="POST" action="/login">
+        <form class="form-signin" method="POST" action="{{ route('login.post') }}">
             {{ csrf_field() }}
 
             <p style="color: yellow;">New to our website? <br>
