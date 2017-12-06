@@ -38,7 +38,6 @@ class ConcertController extends Controller {
 
     public function edit(Request $data, int $concertId)
     {
-        dd($data);
         $data = $this->validatorEdit($data);
         if($concertItem = iisConcertRepository()->getItemById($concertId)) {
             iisConcertRepository()->updateById($data, $concertId);
